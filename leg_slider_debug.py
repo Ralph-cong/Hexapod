@@ -22,7 +22,7 @@ camera_settings = {
 }
 plane_id = p.loadURDF("plane.urdf", useMaximalCoordinates=True)
 p.changeDynamics(plane_id, -1, lateralFriction=5)
-robot_id = p.loadURDF('phantomx.urdf', (0, 0, 0.03),
+robot_id = p.loadURDF('./robot/phantomx.urdf', (0, 0, 0.03),
                       p.getQuaternionFromEuler([0, 0, -np.pi]))
 p.resetDebugVisualizerCamera(
     cameraDistance=camera_settings["distance"],
@@ -116,8 +116,7 @@ while True:
                                      pos[0], pos[1], pos[2] + 0.1], textColorRGB=[1, 0, 0], textSize=1.5)
         # 添加速度的文本显示
         velocity_text = f'Linear Vel: {linear_velocity[0]:.2f}, {linear_velocity[1]:.2f}, {linear_velocity[2]:.2f}\n' \
-            f'Angular Vel: {angular_velocity[0]:.2f}, {
-                angular_velocity[1]:.2f}, {angular_velocity[2]:.2f}'
+            f'Angular Vel: {angular_velocity[0]: .2f}, {angular_velocity[1]: .2f}, {angular_velocity[2]: .2f}'
         velocity_id = p.addUserDebugText(velocity_text, [
             pos[0], pos[1], pos[2] + 0.3], textColorRGB=[0, 1, 0], textSize=1.5)
     else:
@@ -127,8 +126,7 @@ while True:
                                      pos[0], pos[1], pos[2] + 0.1], textColorRGB=[1, 0, 0], textSize=1.5)
         # 添加速度的文本显示
         velocity_text = f'Linear Vel: {linear_velocity[0]:.2f}, {linear_velocity[1]:.2f}, {linear_velocity[2]:.2f}\n' \
-            f'Angular Vel: {angular_velocity[0]:.2f}, {
-                angular_velocity[1]:.2f}, {angular_velocity[2]:.2f}'
+            f'Angular Vel: {angular_velocity[0]: .2f}, {angular_velocity[1]: .2f}, {angular_velocity[2]: .2f}'
         velocity_id = p.addUserDebugText(velocity_text, [
             pos[0], pos[1], pos[2] + 0.3], textColorRGB=[0, 1, 0], textSize=1.5)
 

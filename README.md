@@ -9,7 +9,7 @@ Stable-Baselines3 requires python 3.9+ and PyTorch >= 2.3
 ```shell
 pip3 install torch torchvision torchaudio
 pip install stable-baselines3[extra] 
-pip install pybullet tyro tensorboard==2.17.0
+pip install pybullet tyro tensorboard==2.17.0 scipy==1.13.0
 ```
 
 
