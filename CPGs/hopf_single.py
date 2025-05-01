@@ -126,10 +126,19 @@ p.setGravity(0, 0, -9.8)
 p.setRealTimeSimulation(0)
 
 # Load the URDFs
-plane_id = p.loadURDF("plane100.urdf", useMaximalCoordinates=True)
+# plane_id = p.loadURDF("plane100.urdf", useMaximalCoordinates=True)
+plane_id = p.loadURDF("./Environment/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
+
+
 p.changeDynamics(plane_id, -1, lateralFriction=6)
-r_ind = p.loadURDF('./robot/phantomx.urdf', (0, 0, 0.3),
+r_ind = p.loadURDF('./hexapod_34/urdf/hexapod_34.urdf', (0, 0, 0.3),
                    p.getQuaternionFromEuler([0, 0, 0]))
+
+# num_joints = p.getNumJoints(r_ind)
+# print(f"机器人关节总数: {num_joints}")
+# for i in range(num_joints):
+#     joint_info = p.getJointInfo(r_ind, i)
+#     print(f"关节索引: {i}, 名称: {joint_info[1].decode('utf-8')}")
 
 p.configureDebugVisualizer(p.COV_ENABLE_RENDERING, 1)
 # p.configureDebugVisualizer(p.COV_ENABLE_SINGLE_STEP_RENDERING, 1)
@@ -161,18 +170,18 @@ while True:
     for index in range(0, 6):  # 根据模型的输出更新机器人的关节角
         target_position_1 = Z[2*index]/peak1*par1[index]*0.45
         p.setJointMotorControl2(bodyUniqueId=r_ind,
-                                jointIndex=4 * index + 1,
+                                jointIndex=3 * index,
                                 controlMode=p.POSITION_CONTROL,
                                 targetPosition=target_position_1)
         target_position_2 = max(
             0, (Z[2 * (index+6)]/peak2 * 1 - 0.1))*(-1)+0.35
         p.setJointMotorControl2(bodyUniqueId=r_ind,
-                                jointIndex=4 * index + 3,
+                                jointIndex=3 * index + 1,
                                 controlMode=p.POSITION_CONTROL,
                                 targetPosition=target_position_2)
         target_position_3 = max(0, (Z[2 * (index+6)]/peak2*0.95-0.1))-0.35
         p.setJointMotorControl2(bodyUniqueId=r_ind,
-                                jointIndex=4 * index + 4,
+                                jointIndex=3 * index + 2,
                                 controlMode=p.POSITION_CONTROL,
                                 targetPosition=target_position_3)
     p.stepSimulation()

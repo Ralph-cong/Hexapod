@@ -22,7 +22,7 @@ camera_settings = {
 }
 plane_id = p.loadURDF("plane.urdf", useMaximalCoordinates=True)
 p.changeDynamics(plane_id, -1, lateralFriction=5)
-robot_id = p.loadURDF('./robot/phantomx.urdf', (0, 0, 0.03),
+robot_id = p.loadURDF('./hexapod_34/urdf/hexapod_34.urdf', (0, 0, 0.03),
                       p.getQuaternionFromEuler([0, 0, -np.pi]))
 p.resetDebugVisualizerCamera(
     cameraDistance=camera_settings["distance"],
@@ -86,7 +86,7 @@ while True:
         target_position_1 = p.readUserDebugParameter(
             slider_ids[leg_index * 3])*par[leg_index]
         p.setJointMotorControl2(bodyUniqueId=robot_id,
-                                jointIndex=4 * leg_index + 1,  # 第1个关节
+                                jointIndex=3 * leg_index,  # 第1个关节
                                 controlMode=p.POSITION_CONTROL,
                                 targetPosition=target_position_1)
 
@@ -94,7 +94,7 @@ while True:
         target_position_2 = p.readUserDebugParameter(
             slider_ids[leg_index * 3 + 1])
         p.setJointMotorControl2(bodyUniqueId=robot_id,
-                                jointIndex=4 * leg_index + 3,  # 第3个关节
+                                jointIndex=3 * leg_index + 1,  # 第2个关节
                                 controlMode=p.POSITION_CONTROL,
                                 targetPosition=target_position_2)
 
@@ -102,7 +102,7 @@ while True:
         target_position_3 = p.readUserDebugParameter(
             slider_ids[leg_index * 3 + 2])
         p.setJointMotorControl2(bodyUniqueId=robot_id,
-                                jointIndex=4 * leg_index + 4,  # 第4个关节
+                                jointIndex=3 * leg_index + 2,  # 第3个关节
                                 controlMode=p.POSITION_CONTROL,
                                 targetPosition=target_position_3)
     # 获取机器人基座的位置和方向

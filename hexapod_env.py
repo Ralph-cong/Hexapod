@@ -161,7 +161,9 @@ class HexapodCPGEnv(gym.Env):
         p.setGravity(0, 0, -9.8)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
-        p.loadURDF("plane100.urdf", basePosition=[0, 0, 0])
+        #p.loadURDF("plane100.urdf", basePosition=[0, 0, 0])
+        p.loadURDF("./Environment/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
+
 
         self.rest_poses = [0, 0.65, -0.32]
 
@@ -180,9 +182,9 @@ class HexapodCPGEnv(gym.Env):
             './robot/phantomx.urdf', initial_position, initial_orientation, useFixedBase=False)
 
         for i in range(0, 6):
-            p.resetJointState(self.robot_id, 4*i+1, self.rest_poses[0])
-            p.resetJointState(self.robot_id, 4*i+3, self.rest_poses[1])
-            p.resetJointState(self.robot_id, 4*i+4, self.rest_poses[2])
+            p.resetJointState(self.robot_id, 3*i, self.rest_poses[0])
+            p.resetJointState(self.robot_id, 3*i+1, self.rest_poses[1])
+            p.resetJointState(self.robot_id, 3*i+2, self.rest_poses[2])
 
         self.current_step = 0
         self.t = 0
@@ -272,19 +274,19 @@ class HexapodCPGEnv(gym.Env):
             # 髋关节
             hip_target = k1[group]*self.Z[2*index] * \
                 par1[index]+self.rest_poses[0]
-            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=4 * index + 1,
+            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * index,
                                     controlMode=p.POSITION_CONTROL, targetPosition=hip_target)
 
             # 膝关节
             knee_target = max(
                 0, (k2[group]*self.Z[2 * (index+6)] - 0.1))*(-1)+self.rest_poses[1]
-            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=4 * index + 3,
+            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * index + 1,
                                     controlMode=p.POSITION_CONTROL, targetPosition=knee_target)
 
             # 踝关节
             ankle_target = max(
                 0, (k3[group]*self.Z[2 * (index+6)]-0.1))+self.rest_poses[2]
-            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=4 * index + 4,
+            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * index + 2,
                                     controlMode=p.POSITION_CONTROL, targetPosition=ankle_target)
 
         p.stepSimulation()
@@ -305,13 +307,13 @@ class HexapodCPGEnv(gym.Env):
         # 获取特定关节的位置
         joint_positions = []
         for index in range(6):
-            # 获取每个关节的位置信息，并跳过4*index+2
+            # 获取每个关节的位置信息
             joint_positions.append(
-                p.getJointState(self.robot_id, 4*index+1)[0])
+                p.getJointState(self.robot_id, 3*index)[0])
             joint_positions.append(
-                p.getJointState(self.robot_id, 4*index+3)[0])
+                p.getJointState(self.robot_id, 3*index+1)[0])
             joint_positions.append(
-                p.getJointState(self.robot_id, 4*index+4)[0])
+                p.getJointState(self.robot_id, 3*index+2)[0])
 
         # 将关节位置和速度信息合并成一个观察向量
         observation = np.concatenate(
