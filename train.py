@@ -7,11 +7,13 @@ from stable_baselines3.common.env_util import make_vec_env
 from hexapod_env import HexapodCPGEnv
 
 
-def main(from_scratch: bool = False, steps: int = 80000, model_path: str = "checkpoints"):
+def main(from_scratch: bool = True, steps: int = 80000, model_path: str = "checkpoints"):
     # # 将环境包装成向量化环境，以支持更快的训练
     # env = make_vec_env(lambda: HexapodCPGEnv(render_mode='human'), n_envs=1)
-    env = make_vec_env(lambda: HexapodCPGEnv(
-        render_mode='rgb_array'), n_envs=2)
+    n_envs = 1
+    # env = make_vec_env(lambda: HexapodCPGEnv(
+    #     render_mode='human'), n_envs=n_envs)
+    env = HexapodCPGEnv(render_mode='human')
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -20,8 +22,22 @@ def main(from_scratch: bool = False, steps: int = 80000, model_path: str = "chec
 
     # 如果从头训练，则创建新模型；否则加载已有模型
     if from_scratch:
-        model = PPO("MlpPolicy", env, verbose=1, device=device,
-                    learning_rate=0.001, gamma=0.9, ent_coef=0.001, tensorboard_log="./Tensorboard/")
+        policy_kwargs = dict(net_arch=[256, 256, 256, 256])
+        model = PPO(
+            "MlpPolicy",
+            env,
+            verbose=1,
+            device=device,
+            learning_rate=1e-4,
+            gamma=0.99,
+            ent_coef=0.001,
+            # n_steps=512//n_envs,
+            # n_epochs=10,  
+            gae_lambda=0.95,
+            clip_range=0.2,
+            policy_kwargs=policy_kwargs,
+            tensorboard_log="./Tensorboard/"
+        )
     else:
         model = PPO.load(save_path, env=env, device=device)
 

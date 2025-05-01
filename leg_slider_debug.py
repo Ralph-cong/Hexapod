@@ -20,10 +20,10 @@ camera_settings = {
     "yaw": -90,
     "pitch": -40,
 }
-plane_id = p.loadURDF("plane.urdf", useMaximalCoordinates=True)
+plane_id = p.loadURDF("./assets/custom_ground.urdf", useMaximalCoordinates=True)
 p.changeDynamics(plane_id, -1, lateralFriction=5)
-robot_id = p.loadURDF('./hexapod_34/urdf/hexapod_34.urdf', (0, 0, 0.03),
-                      p.getQuaternionFromEuler([0, 0, -np.pi]))
+robot_id = p.loadURDF('./assets/robot/hexapod_34/urdf/hexapod_34.urdf', (0, 0, 0.03),
+                      p.getQuaternionFromEuler([0, 0, -np.pi/2]))
 p.resetDebugVisualizerCamera(
     cameraDistance=camera_settings["distance"],
     cameraYaw=camera_settings["yaw"],

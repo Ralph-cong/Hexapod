@@ -2,3 +2,4 @@ __pycache__/
 test.py
 RL_test/
 Tensorboard/
+checkpoints/

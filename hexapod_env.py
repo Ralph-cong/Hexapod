@@ -6,90 +6,7 @@ import gymnasium as gym
 from gymnasium import spaces
 from gymnasium.utils import seeding
 from scipy.integrate import solve_ivp
-
-
-def R(theta):
-    """耦合矩阵 R，根据相位差 theta 返回旋转矩阵"""
-    return np.array([[np.cos(theta), -np.sin(theta)],
-                     [np.sin(theta), np.cos(theta)]])
-
-
-# 相位差矩阵
-# 三足
-theta_matrix_degrees = np.array([
-    [0, 180, 0, 0, 0, 180, 0, 0, 0, 0, 0, 0],
-    [-180, 0, -180, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 180, 0, 180, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, -180, 0, -180, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 180, 0, 180, 0, 0, 0, 0, 0, 0],
-    [-180, 0, 0, 0, -180, 0, 0, 0, 0, 0, 0, 0],
-    [90, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 90, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 90, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 90, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 90, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 90, 0, 0, 0, 0, 0, 0]
-])
-
-theta_matrix = np.radians(theta_matrix_degrees)
-
-
-def coupled_hopf(t, Z, N1, N2, alpha, beta, mu, omega1, omega2, k):
-    """定义扩散耦合的 Hopf 振荡器系统"""
-    dZ = np.zeros(2 * (N1 + N2))
-    for i in range(N1 + N2):
-        x, y = Z[2 * i], Z[2 * i + 1]
-
-        if i < N1:
-            dxdt = alpha * (mu**2 - x**2 - y**2) * x - omega1 * y
-            dydt = beta * (mu**2 - x**2 - y**2) * y + omega1 * x
-
-            for m in range(N1):
-                if i != m:
-                    xm, ym = Z[2 * m], Z[2 * m + 1]
-
-                    # Use the phase difference from the matrix
-                    theta_im = theta_matrix[i, m]
-
-                    if xm**2 + ym**2 == 0:
-                        continue
-
-                    # 计算分母
-                    denominator = np.sqrt(xm**2 + ym**2)
-                    # 防止分母为零
-                    denominator = np.where(denominator == 0, 1e-8, denominator)
-
-                    r_im = np.array([xm / denominator,
-                                    ym / denominator])
-                    coupling = k * R(theta_im) @ r_im
-
-                    dxdt += coupling[0]
-                    dydt += coupling[1]
-
-        if i >= N1:  # 如果是 N2 的振荡器，则使用 omega2
-            dxdt = alpha * (mu**2 - x**2 - y**2) * x - omega2 * y
-            dydt = beta * (mu**2 - x**2 - y**2) * y + omega2 * x
-
-            m = i % N1
-            xm, ym = Z[2 * m], Z[2 * m + 1]
-            # Use the phase difference from the matrix
-            theta_im = theta_matrix[i, m]
-
-            # 计算分母
-            denominator = np.sqrt(xm**2 + ym**2)
-            # 防止分母为零
-            denominator = np.where(denominator == 0, 1e-8, denominator)
-
-            r_im = np.array([xm / denominator,
-                             ym / denominator])
-            coupling = k * R(theta_im) @ r_im
-
-            dxdt += coupling[0]
-            dydt += coupling[1]
-
-        dZ[2 * i] = dxdt
-        dZ[2 * i + 1] = dydt
-    return dZ
+from CPGs.CPG import hopf_oscillator
 
 
 class HexapodCPGEnv(gym.Env):
@@ -114,38 +31,31 @@ class HexapodCPGEnv(gym.Env):
             p.connect(p.DIRECT)  # Non-graphical version
 
         self.action_space = spaces.Box(
-            np.array([0.2, 0.2, 0.2, 0.1, 0.1, 0.1,
-                     0.06, 0.06, 0.06]),  # 动作空间下限
-            np.array([0.5, 0.5, 0.5, 0.2, 0.2, 0.2, 0.1, 0.1, 0.1]),  # 动作空间上限
-            dtype=np.float32
+            low = -np.ones(15),
+            high=  np.ones(15),
+            dtype=np.float64
         )
 
-        num_controlled_joints = 18  # 每个腿3个关节，共6腿
         self.observation_space = spaces.Box(
-            low=np.concatenate([
-                -np.ones(num_controlled_joints),  # 归一化后的关节位置范围为 [-1, 1]
-                -np.ones(3),  # 归一化后的线速度范围为 [-1, 1]
-                -np.ones(3),  # 归一化后的角速度范围为 [-1, 1]
-            ]),
-            high=np.concatenate([
-                np.ones(num_controlled_joints),
-                np.ones(3),
-                np.ones(3),
-            ]),
+            low=-np.ones(59),
+            high=np.ones(59),
             dtype=np.float32
         )
 
-        self.mean_observation = np.zeros(num_controlled_joints+6)
-        self.std_observation = np.ones(num_controlled_joints+6)
-        self.alpha_update = 0.01  # 平滑常数
+        self.init_pos = np.array([0.15, 0, 0.03])
+        self.init_ori = np.array(p.getQuaternionFromEuler([0, 0, -np.pi/2]))
+        self.goal = np.array([1.0, 0])  # 目标位置
 
-        # 初始化CPG模型参数
-        self.N1, self.N2 = 6, 6
+        # CPG params
+        self.alpha, self.mu, self.omega, self.k = 100, 6, 30, 120
+        self.A = np.zeros(14)
+
         self.current_step, self.dt = 0, 1./100  # 时间步长
-        self.alpha, self.beta, self.mu, self.omega1, self.omega2, self.k = 100, 100, 3.14, 30, 30, 120
-        self.text_id = None
-        self.velocity_id = None
-        self.angular_velocity_id = None
+
+        self.max_h = 0.1
+
+        # reward weights
+        self.w_h, self.w_th, self.w_d = 0.5, 0.3, 0.2
 
         self.reset()
 
@@ -153,50 +63,26 @@ class HexapodCPGEnv(gym.Env):
         if seed is not None:
             self.seed(seed)  # 重置随机种子
 
-        self.text_id = None
-        self.velocity_id = None
-        self.angular_velocity_id = None
         p.resetSimulation()
         p.configureDebugVisualizer(p.COV_ENABLE_RENDERING, 0)
         p.setGravity(0, 0, -9.8)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
-        #p.loadURDF("plane100.urdf", basePosition=[0, 0, 0])
-        p.loadURDF("./Environment/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
-
-
-        self.rest_poses = [0, 0.65, -0.32]
-
-        # 随机初始化机器人的位置
-        # 随机初始化机器人的x和y位置
-        # 仅生成x和y的随机值
-        initial_position = self.np_random.uniform(-0.01, 0.01, size=2)
-
-        # 将固定的高度值添加到x和y的随机位置上
-        initial_position = np.append(
-            initial_position, 0.19)  # 将高度值0.19添加到数组的最后
-
-        initial_orientation = p.getQuaternionFromEuler([0, 0, -np.pi])
+        p.loadURDF("./assets/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
+        self.mid_joint_value = [0, 0, 0]
 
         self.robot_id = p.loadURDF(
-            './robot/phantomx.urdf', initial_position, initial_orientation, useFixedBase=False)
+            './assets/robot/hexapod_34/urdf/hexapod_34.urdf', self.init_pos, self.init_ori, useFixedBase=False)
 
         for i in range(0, 6):
-            p.resetJointState(self.robot_id, 3*i, self.rest_poses[0])
-            p.resetJointState(self.robot_id, 3*i+1, self.rest_poses[1])
-            p.resetJointState(self.robot_id, 3*i+2, self.rest_poses[2])
+            p.resetJointState(self.robot_id, 3*i, self.mid_joint_value[0])
+            p.resetJointState(self.robot_id, 3*i+1, self.mid_joint_value[1])
+            p.resetJointState(self.robot_id, 3*i+2, self.mid_joint_value[2])
 
         self.current_step = 0
-        self.t = 0
+        self.last_position = np.array([0, 0, 0])
 
-        # 初始条件：为不同组指定不同初始条件
-        Z0 = []
-        for i in range(3):
-            Z0.extend([0, self.mu, 0, -self.mu])  # 另一组初始相位
-        for i in range(3):
-            Z0.extend([-self.mu, 0,  self.mu, 0])  # 另一组初始相位
-
-        self.Z = np.array(Z0)
+        self.Z = np.array([0, self.mu, 0, -self.mu])
 
         if self.render_mode == 'human':
             p.resetDebugVisualizerCamera(
@@ -228,15 +114,15 @@ class HexapodCPGEnv(gym.Env):
     def step(self, action):
         # k1, k2, k3 = action
         # 解包动作，每个leg组的三个关节有独立的控制参数,共3*3=9个参数
-        k1, k2, k3 = action[:3], action[3:6], action[6:9]
-        self.Z = solve_ivp(coupled_hopf, [(self.t+self.current_step)*self.dt, (self.t+self.current_step+1)*self.dt], self.Z,
-                           args=(self.N1, self.N2, self.alpha, self.beta, self.mu, self.omega1, self.omega2, self.k), method='RK45').y[:, -1]
+        self.A = action[1:]
+        self.Z = solve_ivp(hopf_oscillator, [(self.current_step)*self.dt, (self.current_step+1)*self.dt], self.Z,
+                           args=(self.alpha, action[0]*self.mu, self.omega, self.k), method='RK45').y[:, -1]
 
         self.current_step += 1
 
-        par1 = [-1, -1, -1, 1, 1, 1]
         position, _ = p.getBasePositionAndOrientation(self.robot_id)
         position = np.array(position)
+        self.last_position = position.copy()
         camera_target_p = position + self.camera_settings["target_position"]
 
         p.resetDebugVisualizerCamera(
@@ -245,146 +131,105 @@ class HexapodCPGEnv(gym.Env):
             cameraPitch=self.camera_settings["pitch"],
             cameraTargetPosition=camera_target_p)
 
-    # 获取机器人基座的线速度和角速度
-        # linear_velocity, angular_velocity = p.getBaseVelocity(self.robot_id)
-
-        # 显示机器人的三维坐标
-        # if self.text_id is None:
-        #     self.text_id = p.addUserDebugText(f'Position: {position[0]:.2f}, {position[1]:.2f}, {position[2]:.2f}', [
-        #         position[0], position[1]-0.1, position[2] + 0.1], textColorRGB=[1, 0, 0], textSize=1.5)
-        #     self.velocity_id = p.addUserDebugText(f'Linear Vel: {linear_velocity[0]:.2f}, {linear_velocity[1]:.2f}, {linear_velocity[2]:.2f}',
-        #                                           [position[0], position[1]-0.1, position[2] + 0.3], textColorRGB=[0, 1, 0], textSize=1.5)
-        #     self.angular_velocity_id = p.addUserDebugText(f'Angular Vel: {angular_velocity[0]:.2f}, {angular_velocity[1]:.2f}, {angular_velocity[2]:.2f}',
-        #                                                   [position[0], position[1]-0.1, position[2] + 0.5], textColorRGB=[0, 0, 1], textSize=1.5)
-        # else:
-        #     p.removeUserDebugItem(self.text_id)
-        #     p.removeUserDebugItem(self.velocity_id)
-        #     p.removeUserDebugItem(self.angular_velocity_id)
-        #     self.text_id = p.addUserDebugText(f'Position: {position[0]:.2f}, {position[1]:.2f}, {position[2]:.2f}', [
-        #         position[0], position[1]-0.1, position[2] + 0.1], textColorRGB=[1, 0, 0], textSize=1.5)
-        #     self.velocity_id = p.addUserDebugText(f'Linear Vel: {linear_velocity[0]:.2f}, {linear_velocity[1]:.2f}, {linear_velocity[2]:.2f}',
-        #                                           [position[0], position[1]-0.1, position[2] + 0.3], textColorRGB=[0, 1, 0], textSize=1.5)
-        #     self.angular_velocity_id = p.addUserDebugText(f'Angular Vel: {angular_velocity[0]:.2f}, {angular_velocity[1]:.2f}, {angular_velocity[2]:.2f}',
-        #                                                   [position[0], position[1]-0.1, position[2] + 0.5], textColorRGB=[0, 0, 1], textSize=1.5)
-
-        # 应用动作到机器人关节
-        for index in range(0, 6):
-            group = index % 3  # 计算当前索引属于哪一组leg,1、4，2、5，3、6两两对称，共三组
-
-            # 髋关节
-            hip_target = k1[group]*self.Z[2*index] * \
-                par1[index]+self.rest_poses[0]
-            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * index,
-                                    controlMode=p.POSITION_CONTROL, targetPosition=hip_target)
-
-            # 膝关节
-            knee_target = max(
-                0, (k2[group]*self.Z[2 * (index+6)] - 0.1))*(-1)+self.rest_poses[1]
-            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * index + 1,
-                                    controlMode=p.POSITION_CONTROL, targetPosition=knee_target)
-
-            # 踝关节
-            ankle_target = max(
-                0, (k3[group]*self.Z[2 * (index+6)]-0.1))+self.rest_poses[2]
-            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * index + 2,
-                                    controlMode=p.POSITION_CONTROL, targetPosition=ankle_target)
-
+        self.joint_mapping(self.A)
         p.stepSimulation()
 
         observation = self._get_observation()
         reward = self._compute_reward()
         terminated = self._check_terminated()
         truncated = self._check_truncated()
-        info = {}  # 可以添加额外信息
+        info = {} 
         return observation, reward, terminated, truncated, info
 
-    def _get_observation(self):
-        # 获取基座的速度和加速度
-        base_velocity = p.getBaseVelocity(self.robot_id)
-        linear_velocity = np.array(base_velocity[0])  # 基座的线速度
-        angular_velocity = np.array(base_velocity[1])  # 基座的角速度
+    def joint_mapping(self, A):
+        A1, A2, A3 = A[0:2], A[2:8], A[8:14]
+        for idx in range(0, 6):
+            group_idx = idx % 2  # 计算当前索引属于哪一组leg, 0,2,4为一组，1,3,5为另一组
+            # hip
+            hip_target = A1[group_idx]*self.Z[2*group_idx]
+            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * idx,
+                                    controlMode=p.POSITION_CONTROL, targetPosition=(hip_target+self.mid_joint_value[0]))
+            # knee
+            knee_target = max(
+                0, (A2[idx]*(1-self.Z[2*group_idx])**2))
+            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * idx + 1,
+                                    controlMode=p.POSITION_CONTROL, targetPosition=(knee_target+self.mid_joint_value[1]))
+            # ankle
+            ankle_target = -A3[idx]*knee_target
+            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * idx + 2,
+                                    controlMode=p.POSITION_CONTROL, targetPosition=(ankle_target+self.mid_joint_value[2]))
 
+    def _get_observation(self):
         # 获取特定关节的位置
-        joint_positions = []
-        for index in range(6):
-            # 获取每个关节的位置信息
-            joint_positions.append(
-                p.getJointState(self.robot_id, 3*index)[0])
-            joint_positions.append(
-                p.getJointState(self.robot_id, 3*index+1)[0])
-            joint_positions.append(
-                p.getJointState(self.robot_id, 3*index+2)[0])
+        joint_pos = np.array([p.getJointState(self.robot_id, idx)[0] for idx in range(18)])/np.pi
+        joint_vel = np.array([p.getJointState(self.robot_id, idx)[1] for idx in range(18)])/10
+
+        # 获取基座的位置和朝向
+        position, orientation = p.getBasePositionAndOrientation(self.robot_id)
+        orientation = np.array(p.getEulerFromQuaternion(orientation))
 
         # 将关节位置和速度信息合并成一个观察向量
         observation = np.concatenate(
-            [joint_positions, linear_velocity, angular_velocity])
+            [joint_pos, joint_vel, self.goal, position, orientation, self.A, np.array([self.max_h])])
 
-        # 更新移动均值和标准差
-        self.mean_observation = self.alpha_update * observation + \
-            (1 - self.alpha_update) * self.mean_observation
-        self.std_observation = self.alpha_update * \
-            np.square(observation - self.mean_observation) + \
-            (1 - self.alpha_update) * self.std_observation
-
-        # 归一化观察量
-        self.std_observation[self.std_observation < 1e-8] = 1e-8  # 避免除以零
-        normalized_observation = (
-            observation - self.mean_observation) / np.sqrt(self.std_observation)
-
-        return normalized_observation
+        return observation
 
     def _compute_reward(self):
-        # 获取机器人当前速度和位置
-        target_velocity = np.array([0.5, 0])
-        base_velocity = p.getBaseVelocity(self.robot_id)
-        linear_velocity = np.array(base_velocity[0])  # 线速度
 
-        # 获取机器人当前位置（假设p.getPosition返回格式为[x, y, z]）
-        position, _ = p.getBasePositionAndOrientation(self.robot_id)
-        y_position = position[1]  # y轴位置
-
-        # 提取 x 和 y 平面的速度分量
-        linear_velocity_xy = linear_velocity[:2]
-
-        # 1. 计算速度方向和目标速度方向的余弦相似度
-        target_speed = np.linalg.norm(target_velocity)
-        current_speed = np.linalg.norm(linear_velocity_xy)
-
-        # 如果机器人静止或目标速度为零，处理边界情况
-        if target_speed == 0 or current_speed == 0:
-            direction_similarity = 1.0 if target_speed == current_speed else 0.0
+        pos, ori = p.getBasePositionAndOrientation(self.robot_id)
+        pos = np.array(pos)
+        # Height Reward
+        if pos[2] > self.max_h + 0.04:
+            r_h = pos[2] - self.max_h
         else:
-            direction_similarity = np.dot(target_velocity, linear_velocity_xy) / (
-                target_speed * current_speed + 1e-6
-            )
+            r_h = 0
 
-        # 2. 计算速度幅值误差
-        speed_error = abs(target_speed - current_speed)
+        # Direction Reward
+        theta = np.arctan2(pos[1]-self.init_pos[1], pos[0]-self.init_pos[0])
+        if theta < np.pi/6:
+            r_theta = np.dot(self.goal-self.init_pos[:2], [np.cos(theta), np.sin(theta)])/np.linalg.norm(self.goal-self.init_pos[:2])
+        else:
+            r_theta = 0
+        
+        # Distance Reward
+        d_n = np.linalg.norm(pos[:2]-self.init_pos[:2])
+        d_t = np.linalg.norm(self.goal-self.init_pos[:2])
+        r_d = np.exp(-(d_n-d_t))
+        
+        # Stability Reward
+        roll, pitch, _ = p.getEulerFromQuaternion(ori)
+        if pos[2] < self.max_h + 0.04 or abs(roll)>np.pi/6 or abs(pitch)>np.pi/6:
+            r_s = -100
 
-        # 3. 奖励函数计算：方向相似性和速度匹配
-        direction_reward = max(0, direction_similarity)  # 确保只有在正向时才奖励
-        speed_reward = 1.0 - speed_error / (target_speed + 1e-6)  # 归一化速度误差奖励
+        # Forward Reward
+        if pos[0]-self.last_position[0]< 0.01 and self.current_step > 0:
+            r_f = -0.3
+        else:
+            r_f = 0
 
-        # 4. 计算y轴位置偏差惩罚
-        y_position_penalty = -abs(y_position)  # 惩罚项与y轴位置的绝对值成正比
-
-        # 5. 计算最终奖励
-        reward = 0.8 * direction_reward + 0.2 * \
-            speed_reward + y_position_penalty  # 加入y轴位置偏差惩罚项
+        reward = self.w_h*r_h + self.w_th*r_theta + self.w_d*r_d + r_s + r_f
         return reward
 
     def _check_terminated(self):
         # 检查是否达到了环境的自然结束条件
-        _, orientation = p.getBasePositionAndOrientation(self.robot_id)
+        position, orientation = p.getBasePositionAndOrientation(self.robot_id)
         roll, pitch, _ = p.getEulerFromQuaternion(orientation)
-        if abs(roll) > 0.5 or abs(pitch) > 0.5:  # 检查是否翻倒
+
+        # check if the robot has fallen
+        if position[2] < self.max_h + 0.04 or abs(roll) > np.pi/3 or abs(pitch) > np.pi/3:  # 检查是否翻倒
             return True
-        # 可以添加更多自然结束的条件，例如达到目标位置等
+        # check if the robot has moved too far in the Y-axis direction
+        if abs(position[1]-self.init_pos[1]) > 0.8:
+            return True
+        # check if the robot has reached the goal
+        if abs(position[0]-self.goal[0]) < 0.2:
+            return True
+        
         return False
 
     def _check_truncated(self):
         # 检查是否因为步数限制或其他非自然原因而结束
-        if self.current_step >= 1000:  # 假设最大步数为1000
+        if self.current_step >= 7000:  
             return True
         return False
 

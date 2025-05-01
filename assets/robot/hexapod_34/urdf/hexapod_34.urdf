@@ -95,7 +95,7 @@
     <child
       link="l1_bc" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
       lower="-3.14"
       upper="3.14"
@@ -269,7 +269,7 @@
     <child
       link="l2_bc" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
       lower="-3.14"
       upper="3.14"
@@ -443,7 +443,7 @@
     <child
       link="l3_bc" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
       lower="-3.14"
       upper="3.14"
@@ -617,7 +617,7 @@
     <child
       link="r1_bc" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
       lower="-3.14"
       upper="3.14"
@@ -675,7 +675,7 @@
     <child
       link="r1_cf" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
     <limit
       lower="-3.14"
       upper="3.14"
@@ -733,7 +733,7 @@
     <child
       link="r1_ft" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
     <limit
       lower="-3.14"
       upper="3.14"
@@ -791,7 +791,7 @@
     <child
       link="r2_bc" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
       lower="-3.14"
       upper="3.14"
@@ -849,7 +849,7 @@
     <child
       link="r2_cf" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
     <limit
       lower="-3.14"
       upper="3.14"
@@ -907,7 +907,7 @@
     <child
       link="r2_ft" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
     <limit
       lower="-3.14"
       upper="3.14"
@@ -965,7 +965,7 @@
     <child
       link="r3_bc" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
       lower="-3.14"
       upper="3.14"
@@ -1023,7 +1023,7 @@
     <child
       link="r3_cf" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
     <limit
       lower="-3.14"
       upper="3.14"
@@ -1081,7 +1081,7 @@
     <child
       link="r3_ft" />
     <axis
-      xyz="0 1.9702E-05 1" />
+      xyz="0 0 -1" />
     <limit
       lower="-3.14"
       upper="3.14"
