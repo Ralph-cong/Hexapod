@@ -31,28 +31,34 @@ class HexapodCPGEnv(gym.Env):
             p.connect(p.DIRECT)  # Non-graphical version
 
         self.action_space = spaces.Box(
-            low = -np.ones(15),
-            high=  np.ones(15),
-            dtype=np.float64
+            low = np.concatenate([
+                np.array([0.8]),
+                np.ones(14)*0.5,
+                ]),
+            high= np.concatenate([
+                np.array([1.2]),
+                np.ones(14)*1.5,
+                ]),
+                dtype=np.float64
         )
 
         self.observation_space = spaces.Box(
             low=-np.ones(59),
             high=np.ones(59),
-            dtype=np.float32
+            dtype=np.float64
         )
 
-        self.init_pos = np.array([0.15, 0, 0.03])
+        self.init_pos = np.array([0.15, 0, 0.05])
         self.init_ori = np.array(p.getQuaternionFromEuler([0, 0, -np.pi/2]))
         self.goal = np.array([1.0, 0])  # 目标位置
 
         # CPG params
-        self.alpha, self.mu, self.omega, self.k = 100, 6, 30, 120
+        self.alpha, self.mu, self.omega, self.k = 100, 3, np.pi, 10
         self.A = np.zeros(14)
 
         self.current_step, self.dt = 0, 1./100  # 时间步长
 
-        self.max_h = 0.1
+        self.max_h = 0.
 
         # reward weights
         self.w_h, self.w_th, self.w_d = 0.5, 0.3, 0.2
@@ -68,7 +74,8 @@ class HexapodCPGEnv(gym.Env):
         p.setGravity(0, 0, -9.8)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
-        p.loadURDF("./assets/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
+        # p.loadURDF("./assets/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
+        p.loadURDF("plane.urdf", useMaximalCoordinates=True)
         self.mid_joint_value = [0, 0, 0]
 
         self.robot_id = p.loadURDF(
@@ -116,7 +123,7 @@ class HexapodCPGEnv(gym.Env):
         # 解包动作，每个leg组的三个关节有独立的控制参数,共3*3=9个参数
         self.A = action[1:]
         self.Z = solve_ivp(hopf_oscillator, [(self.current_step)*self.dt, (self.current_step+1)*self.dt], self.Z,
-                           args=(self.alpha, action[0]*self.mu, self.omega, self.k), method='RK45').y[:, -1]
+                           args=(self.alpha, self.mu, action[0]*self.omega, self.k), method='RK45').y[:, -1]
 
         self.current_step += 1
 
@@ -200,6 +207,8 @@ class HexapodCPGEnv(gym.Env):
         roll, pitch, _ = p.getEulerFromQuaternion(ori)
         if pos[2] < self.max_h + 0.04 or abs(roll)>np.pi/6 or abs(pitch)>np.pi/6:
             r_s = -100
+        else:
+            r_s = 0
 
         # Forward Reward
         if pos[0]-self.last_position[0]< 0.01 and self.current_step > 0:
@@ -216,7 +225,7 @@ class HexapodCPGEnv(gym.Env):
         roll, pitch, _ = p.getEulerFromQuaternion(orientation)
 
         # check if the robot has fallen
-        if position[2] < self.max_h + 0.04 or abs(roll) > np.pi/3 or abs(pitch) > np.pi/3:  # 检查是否翻倒
+        if position[2] < self.max_h + 0.02 or abs(roll) > np.pi/3 or abs(pitch) > np.pi/3:  # 检查是否翻倒
             return True
         # check if the robot has moved too far in the Y-axis direction
         if abs(position[1]-self.init_pos[1]) > 0.8:

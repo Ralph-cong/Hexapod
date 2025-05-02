@@ -9,11 +9,10 @@ from hexapod_env import HexapodCPGEnv
 
 def main(from_scratch: bool = True, steps: int = 80000, model_path: str = "checkpoints"):
     # # 将环境包装成向量化环境，以支持更快的训练
-    # env = make_vec_env(lambda: HexapodCPGEnv(render_mode='human'), n_envs=1)
     n_envs = 1
-    # env = make_vec_env(lambda: HexapodCPGEnv(
-    #     render_mode='human'), n_envs=n_envs)
-    env = HexapodCPGEnv(render_mode='human')
+
+    env = make_vec_env(lambda: HexapodCPGEnv(render_mode='human'), n_envs=n_envs)
+
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
