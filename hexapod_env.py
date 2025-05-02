@@ -1,6 +1,7 @@
 import numpy as np
 import pybullet_data
 import pybullet as p
+import time
 
 import gymnasium as gym
 from gymnasium import spaces
@@ -33,11 +34,11 @@ class HexapodCPGEnv(gym.Env):
         self.action_space = spaces.Box(
             low = np.concatenate([
                 np.array([0.8]),
-                np.ones(14)*0.5,
+                np.ones(14)*0.1,
                 ]),
             high= np.concatenate([
                 np.array([1.2]),
-                np.ones(14)*1.5,
+                np.ones(14)*0.5,
                 ]),
                 dtype=np.float64
         )
@@ -48,17 +49,18 @@ class HexapodCPGEnv(gym.Env):
             dtype=np.float64
         )
 
-        self.init_pos = np.array([0.15, 0, 0.05])
+        self.init_pos = np.array([0.15, 0, 0.2])
         self.init_ori = np.array(p.getQuaternionFromEuler([0, 0, -np.pi/2]))
         self.goal = np.array([1.0, 0])  # 目标位置
 
         # CPG params
-        self.alpha, self.mu, self.omega, self.k = 100, 3, np.pi, 10
+        # self.alpha, self.mu, self.omega, self.k = 100, 3, np.pi, 10
+        self.alpha, self.mu, self.omega, self.k = 50, 0.5, np.pi/3, 1
         self.A = np.zeros(14)
 
         self.current_step, self.dt = 0, 1./100  # 时间步长
 
-        self.max_h = 0.
+        self.max_h = 0
 
         # reward weights
         self.w_h, self.w_th, self.w_d = 0.5, 0.3, 0.2
@@ -125,6 +127,7 @@ class HexapodCPGEnv(gym.Env):
         self.Z = solve_ivp(hopf_oscillator, [(self.current_step)*self.dt, (self.current_step+1)*self.dt], self.Z,
                            args=(self.alpha, self.mu, action[0]*self.omega, self.k), method='RK45').y[:, -1]
 
+
         self.current_step += 1
 
         position, _ = p.getBasePositionAndOrientation(self.robot_id)
@@ -141,6 +144,9 @@ class HexapodCPGEnv(gym.Env):
         self.joint_mapping(self.A)
         p.stepSimulation()
 
+        # if self.render_mode == 'human':
+        #     time.sleep(0.03)
+            
         observation = self._get_observation()
         reward = self._compute_reward()
         terminated = self._check_terminated()
@@ -158,7 +164,7 @@ class HexapodCPGEnv(gym.Env):
                                     controlMode=p.POSITION_CONTROL, targetPosition=(hip_target+self.mid_joint_value[0]))
             # knee
             knee_target = max(
-                0, (A2[idx]*(1-self.Z[2*group_idx])**2))
+                0, (A2[idx]*(1-self.Z[2*group_idx + 1])**2))
             p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * idx + 1,
                                     controlMode=p.POSITION_CONTROL, targetPosition=(knee_target+self.mid_joint_value[1]))
             # ankle
