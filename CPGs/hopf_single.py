@@ -127,11 +127,11 @@ p.setRealTimeSimulation(0)
 
 # Load the URDFs
 # plane_id = p.loadURDF("plane100.urdf", useMaximalCoordinates=True)
-plane_id = p.loadURDF("./Environment/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
+plane_id = p.loadURDF("./assets/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
 
 
 p.changeDynamics(plane_id, -1, lateralFriction=6)
-r_ind = p.loadURDF('./hexapod_34/urdf/hexapod_34.urdf', (0, 0, 0.3),
+r_ind = p.loadURDF('./assets/robot/hexapod_34/urdf/hexapod_34.urdf', (0, 0, 0.3),
                    p.getQuaternionFromEuler([0, 0, 0]))
 
 # num_joints = p.getNumJoints(r_ind)
