@@ -34,11 +34,15 @@ class HexapodCPGEnv(gym.Env):
         self.action_space = spaces.Box(
             low = np.concatenate([
                 np.array([0.8]),
-                np.ones(14)*0.1,
+                np.ones(2)*0.6,
+                np.ones(6)*0.9,
+                np.ones(6)*0.8,
                 ]),
             high= np.concatenate([
                 np.array([1.2]),
-                np.ones(14)*0.5,
+                np.ones(2)*1.1,
+                np.ones(6)*1.4,
+                np.ones(6)*1.2,
                 ]),
                 dtype=np.float64
         )
@@ -55,7 +59,7 @@ class HexapodCPGEnv(gym.Env):
 
         # CPG params
         # self.alpha, self.mu, self.omega, self.k = 100, 3, np.pi, 10
-        self.alpha, self.mu, self.omega, self.k = 50, 0.5, np.pi/3, 1
+        self.alpha, self.mu, self.omega, self.k = 50, 1, np.pi/3, 1
         self.A = np.zeros(14)
 
         self.current_step, self.dt = 0, 1./100  # 时间步长
@@ -78,7 +82,7 @@ class HexapodCPGEnv(gym.Env):
 
         # p.loadURDF("./assets/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
         p.loadURDF("plane.urdf", useMaximalCoordinates=True)
-        self.mid_joint_value = [0, 0, 0]
+        self.mid_joint_value = [0, 0.1, 0]
 
         self.robot_id = p.loadURDF(
             './assets/robot/hexapod_34/urdf/hexapod_34.urdf', self.init_pos, self.init_ori, useFixedBase=False)
@@ -126,10 +130,8 @@ class HexapodCPGEnv(gym.Env):
         self.A = action[1:]
         self.Z = solve_ivp(hopf_oscillator, [(self.current_step)*self.dt, (self.current_step+1)*self.dt], self.Z,
                            args=(self.alpha, self.mu, action[0]*self.omega, self.k), method='RK45').y[:, -1]
-
-        # 计算 dy
-        dZ = hopf_oscillator(0, self.Z, self.alpha, self.mu, action[0] * self.omega, self.k)
-        dy = np.array([dZ[1], dZ[3]])
+        # self.Z = solve_ivp(hopf_oscillator, [(self.current_step)*self.dt, (self.current_step+1)*self.dt], self.Z,
+        #                    args=(self.alpha, self.mu, self.omega, self.k), method='RK45').y[:, -1]
 
         self.current_step += 1
 
@@ -144,7 +146,7 @@ class HexapodCPGEnv(gym.Env):
             cameraPitch=self.camera_settings["pitch"],
             cameraTargetPosition=camera_target_p)
 
-        self.joint_mapping(self.A, dy)
+        self.joint_mapping(self.A)
         p.stepSimulation()
 
         # if self.render_mode == 'human':
@@ -157,19 +159,16 @@ class HexapodCPGEnv(gym.Env):
         info = {} 
         return observation, reward, terminated, truncated, info
 
-    def joint_mapping(self, A, dy):
+    def joint_mapping(self, A):
         A1, A2, A3 = A[0:2], A[2:8], A[8:14]
-        for idx in range(0, 6):
+        for idx in range(6):
             group_idx = idx % 2  # 计算当前索引属于哪一组leg, 0,2,4为一组，1,3,5为另一组
             # hip
-            hip_target = A1[group_idx]*self.Z[2*group_idx + 1]
+            hip_target = A1[idx//3]*self.Z[2*group_idx]
             p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * idx,
                                     controlMode=p.POSITION_CONTROL, targetPosition=(hip_target+self.mid_joint_value[0]))
             # knee
-            if dy[group_idx] >= 0:
-                knee_target = A2[idx] * (1 - self.Z[2 * group_idx + 1] ** 2)
-            else:
-                knee_target = 0
+            knee_target = A2[idx] * max(self.Z[2 * group_idx+1],0)
             p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * idx + 1,
                                     controlMode=p.POSITION_CONTROL, targetPosition=(knee_target+self.mid_joint_value[1]))
             # ankle

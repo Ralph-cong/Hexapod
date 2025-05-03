@@ -34,7 +34,6 @@ p.resetDebugVisualizerCamera(
 
 p.configureDebugVisualizer(p.COV_ENABLE_RENDERING, 1)
 
-par = [-1, -1, -1, 1, 1, 1]
 
 # # 创建滑条
 # slider_ids = []
@@ -85,7 +84,7 @@ while True:
     for leg_index in range(6):  # 六条腿
         # 控制第1个关节（对应URDF中的第1个关节）
         target_position_1 = p.readUserDebugParameter(
-            slider_ids[leg_index * 3])*par[leg_index]
+            slider_ids[leg_index * 3])
         p.setJointMotorControl2(bodyUniqueId=robot_id,
                                 jointIndex=3 * leg_index,  # 第1个关节
                                 controlMode=p.POSITION_CONTROL,

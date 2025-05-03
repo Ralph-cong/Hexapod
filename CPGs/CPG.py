@@ -39,7 +39,7 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
     from scipy.integrate import solve_ivp
     # 参数
-    alpha, mu, omega, k = 100, 3, np.pi, 10  
+    alpha, mu, omega, k = 50, 3, np.pi, 10  
 
     # 初始条件：为不同组指定不同初始条件
     Z0 = [0, 0.2, 0, 0.3]
@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
     # 保存时间和 Z[2*i] 的值以绘图
     time_data = []
-    state_data = [[] for _ in range(2)]
+    state_data = [[] for _ in range(4)]
 
     # 循环计算并输出每个时刻点的值
     for t in t_eval:
@@ -68,12 +68,15 @@ if __name__ == "__main__":
         time_data.append(t)
 
         for i in range(2):
-            state_data[i].append(Z[2 * i+1])
-
+            state_data[i].append(Z[2 * i])
+        for i in range(2):
+            state_data[i+2].append(max(0,Z[2 * i+1]))
+        
         # 更新图形
         ax.clear()
         for i in range(2):
             ax.plot(time_data, state_data[i], label=f'Oscillator {i + 1}')
+            ax.plot(time_data, state_data[i+2], label=f'Oscillator {i + 1} (knee)', linestyle='--')
         ax.set_xlabel('Time (t)')
         ax.set_ylabel('Displacement (x)')
         ax.set_title('Displacement over Time')
