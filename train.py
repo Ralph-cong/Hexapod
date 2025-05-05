@@ -7,12 +7,11 @@ from stable_baselines3.common.env_util import make_vec_env
 from hexapod_env import HexapodCPGEnv
 
 
-def main(from_scratch: bool = True, steps: int = 80000, model_path: str = "checkpoints"):
+def main(from_scratch: bool = False, steps: int = 500000, model_path: str = "checkpoints"):
     # # 将环境包装成向量化环境，以支持更快的训练
     n_envs = 1
 
     env = make_vec_env(lambda: HexapodCPGEnv(render_mode='human'), n_envs=n_envs)
-
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -30,7 +29,7 @@ def main(from_scratch: bool = True, steps: int = 80000, model_path: str = "check
             learning_rate=1e-4,
             gamma=0.99,
             ent_coef=0.001,
-            # n_steps=512//n_envs,
+            n_steps=512//n_envs,
             # n_epochs=10,  
             gae_lambda=0.95,
             clip_range=0.2,

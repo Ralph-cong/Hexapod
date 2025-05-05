@@ -9,6 +9,8 @@ from gymnasium.utils import seeding
 from scipy.integrate import solve_ivp
 from CPGs.CPG import hopf_oscillator
 
+import logging
+
 
 class HexapodCPGEnv(gym.Env):
     metadata = {'render.modes': ['human', 'rgb_array', 'none']}
@@ -34,15 +36,15 @@ class HexapodCPGEnv(gym.Env):
         self.action_space = spaces.Box(
             low = np.concatenate([
                 np.array([0.8]),
-                np.ones(2)*0.6,
-                np.ones(6)*0.9,
-                np.ones(6)*0.8,
+                np.ones(2)*0.75,
+                np.ones(6)*1.2,
+                np.ones(6)*0.7,
                 ]),
             high= np.concatenate([
                 np.array([1.2]),
-                np.ones(2)*1.1,
-                np.ones(6)*1.4,
-                np.ones(6)*1.2,
+                np.ones(2)*1.15,
+                np.ones(6)*1.8,
+                np.ones(6)*0.9,
                 ]),
                 dtype=np.float64
         )
@@ -53,21 +55,21 @@ class HexapodCPGEnv(gym.Env):
             dtype=np.float64
         )
 
-        self.init_pos = np.array([0.15, 0, 0.2])
-        self.init_ori = np.array(p.getQuaternionFromEuler([0, 0, -np.pi/2]))
+        self.init_pos = np.array([0, 0, 0.17])
+        self.init_ori = np.array(p.getQuaternionFromEuler([0, 0, 0]))
         self.goal = np.array([1.0, 0])  # 目标位置
 
         # CPG params
         # self.alpha, self.mu, self.omega, self.k = 100, 3, np.pi, 10
-        self.alpha, self.mu, self.omega, self.k = 50, 1, np.pi/3, 1
+        self.alpha, self.mu, self.omega, self.k = 50, 1, np.pi/5, 1
         self.A = np.zeros(14)
 
         self.current_step, self.dt = 0, 1./100  # 时间步长
 
-        self.max_h = 0
+        self.max_h = 0.1
 
         # reward weights
-        self.w_h, self.w_th, self.w_d = 0.5, 0.3, 0.2
+        self.w_h, self.w_th, self.w_d = 0.05, 0.15, 0.1
 
         self.reset()
 
@@ -80,17 +82,17 @@ class HexapodCPGEnv(gym.Env):
         p.setGravity(0, 0, -9.8)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
-        # p.loadURDF("./assets/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
-        p.loadURDF("plane.urdf", useMaximalCoordinates=True)
-        self.mid_joint_value = [0, 0.1, 0]
+        p.loadURDF("./assets/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
+        # p.loadURDF("plane.urdf", useMaximalCoordinates=True)
+        self.mid_joint_value = [0, 0, 0]
 
         self.robot_id = p.loadURDF(
             './assets/robot/hexapod_34/urdf/hexapod_34.urdf', self.init_pos, self.init_ori, useFixedBase=False)
 
         for i in range(0, 6):
-            p.resetJointState(self.robot_id, 3*i, self.mid_joint_value[0])
-            p.resetJointState(self.robot_id, 3*i+1, self.mid_joint_value[1])
-            p.resetJointState(self.robot_id, 3*i+2, self.mid_joint_value[2])
+            p.resetJointState(self.robot_id, 3*i+1, self.mid_joint_value[0])
+            p.resetJointState(self.robot_id, 3*i+2, self.mid_joint_value[1])
+            p.resetJointState(self.robot_id, 3*i+3, self.mid_joint_value[2])
 
         self.current_step = 0
         self.last_position = np.array([0, 0, 0])
@@ -164,16 +166,19 @@ class HexapodCPGEnv(gym.Env):
         for idx in range(6):
             group_idx = idx % 2  # 计算当前索引属于哪一组leg, 0,2,4为一组，1,3,5为另一组
             # hip
+            # hip_target = 0.7*self.Z[2*group_idx]
             hip_target = A1[idx//3]*self.Z[2*group_idx]
-            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * idx,
+            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * idx + 1,
                                     controlMode=p.POSITION_CONTROL, targetPosition=(hip_target+self.mid_joint_value[0]))
             # knee
+            # knee_target = 1.5 * max(self.Z[2 * group_idx+1],0)
             knee_target = A2[idx] * max(self.Z[2 * group_idx+1],0)
-            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * idx + 1,
+            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * idx + 2,
                                     controlMode=p.POSITION_CONTROL, targetPosition=(knee_target+self.mid_joint_value[1]))
             # ankle
+            # ankle_target = -0.9*knee_target
             ankle_target = -A3[idx]*knee_target
-            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * idx + 2,
+            p.setJointMotorControl2(bodyUniqueId=self.robot_id, jointIndex=3 * idx + 3,
                                     controlMode=p.POSITION_CONTROL, targetPosition=(ankle_target+self.mid_joint_value[2]))
 
     def _get_observation(self):
@@ -235,13 +240,16 @@ class HexapodCPGEnv(gym.Env):
         roll, pitch, _ = p.getEulerFromQuaternion(orientation)
 
         # check if the robot has fallen
-        if position[2] < self.max_h + 0.02 or abs(roll) > np.pi/3 or abs(pitch) > np.pi/3:  # 检查是否翻倒
+        if abs(roll) > np.pi/3 or abs(pitch) > np.pi/3:  # 检查是否翻倒
+            print("Robot has fallen")
             return True
         # check if the robot has moved too far in the Y-axis direction
         if abs(position[1]-self.init_pos[1]) > 0.8:
+            print("Robot has moved too far in the Y-axis direction")
             return True
         # check if the robot has reached the goal
         if abs(position[0]-self.goal[0]) < 0.2:
+            print("Robot has reached the goal")
             return True
         
         return False
