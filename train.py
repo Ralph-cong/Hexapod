@@ -7,7 +7,9 @@ from stable_baselines3.common.env_util import make_vec_env
 from hexapod_env import HexapodCPGEnv
 
 
-def main(from_scratch: bool = False, steps: int = 500000, model_path: str = "checkpoints"):
+# def main(from_scratch: bool = False, steps: int = 500000, model_path: str = "checkpoints"):
+def main(from_scratch: bool = True, steps: int = 500000, model_path: str = "checkpoints"):
+
     # # 将环境包装成向量化环境，以支持更快的训练
     n_envs = 1
 
