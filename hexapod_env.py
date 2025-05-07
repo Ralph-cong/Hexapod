@@ -36,15 +36,15 @@ class HexapodCPGEnv(gym.Env):
         self.action_space = spaces.Box(
             low = np.concatenate([
                 np.array([0.8]),
-                np.ones(2)*0.75,
-                np.ones(6)*1.2,
-                np.ones(6)*0.7,
+                np.ones(2)*0.8,
+                np.ones(6)*0.3,
+                np.ones(6)*0.1,
                 ]),
             high= np.concatenate([
                 np.array([1.2]),
-                np.ones(2)*1.15,
-                np.ones(6)*1.8,
-                np.ones(6)*0.9,
+                np.ones(2)*1.2,
+                np.ones(6)*0.5,
+                np.ones(6)*0.3,
                 ]),
                 dtype=np.float64
         )
@@ -61,7 +61,7 @@ class HexapodCPGEnv(gym.Env):
 
         # CPG params
         # self.alpha, self.mu, self.omega, self.k = 100, 3, np.pi, 10
-        self.alpha, self.mu, self.omega, self.k = 50, 1, np.pi/5, 1
+        self.alpha, self.mu, self.omega, self.k = 50, 1, np.pi/2, 1
         self.A = np.zeros(14)
 
         self.current_step, self.dt = 0, 1./100  # 时间步长
@@ -82,8 +82,10 @@ class HexapodCPGEnv(gym.Env):
         p.setGravity(0, 0, -9.8)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
-        p.loadURDF("./assets/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
-        # p.loadURDF("plane.urdf", useMaximalCoordinates=True)
+        # p.loadURDF("./assets/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
+        p.loadURDF("plane.urdf", useMaximalCoordinates=True)
+        p.loadURDF("./assets/stair_obstacle.urdf", basePosition=[-3, 0, 0])
+
         self.mid_joint_value = [0, 0, 0]
 
         self.robot_id = p.loadURDF(
