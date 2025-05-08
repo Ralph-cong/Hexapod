@@ -37,13 +37,13 @@ class HexapodCPGEnv(gym.Env):
             low = np.concatenate([
                 np.array([0.8]),
                 np.ones(2)*0.8,
-                np.ones(6)*0.3,
+                np.ones(6)*0.4,
                 np.ones(6)*0.1,
                 ]),
             high= np.concatenate([
                 np.array([1.2]),
                 np.ones(2)*1.2,
-                np.ones(6)*0.5,
+                np.ones(6)*0.6,
                 np.ones(6)*0.3,
                 ]),
                 dtype=np.float64
@@ -55,9 +55,9 @@ class HexapodCPGEnv(gym.Env):
             dtype=np.float64
         )
 
-        self.init_pos = np.array([0, 0, 0.17])
+        self.init_pos = np.array([0.5, 0, 0.17])
         self.init_ori = np.array(p.getQuaternionFromEuler([0, 0, 0]))
-        self.goal = np.array([1.0, 0])  # 目标位置
+        self.goal = np.array([-2.0, 0])  # 目标位置
 
         # CPG params
         # self.alpha, self.mu, self.omega, self.k = 100, 3, np.pi, 10
@@ -84,7 +84,9 @@ class HexapodCPGEnv(gym.Env):
 
         # p.loadURDF("./assets/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
         p.loadURDF("plane.urdf", useMaximalCoordinates=True)
-        p.loadURDF("./assets/stair_obstacle.urdf", basePosition=[-3, 0, 0])
+        # p.loadURDF("./assets/stair_obstacle.urdf", basePosition=[-3.3, 0, 0])
+        p.loadURDF("./assets/obstacle.urdf", basePosition=[0, 0, 0],useFixedBase=True)
+        # p.loadURDF("./assets/obstacle_mul.urdf", basePosition=[0.3, 0, 0],useFixedBase=True)
 
         self.mid_joint_value = [0, 0, 0]
 
@@ -222,7 +224,7 @@ class HexapodCPGEnv(gym.Env):
         
         # Stability Reward
         roll, pitch, _ = p.getEulerFromQuaternion(ori)
-        if pos[2] < self.max_h + 0.04 or abs(roll)>np.pi/6 or abs(pitch)>np.pi/6:
+        if pos[2] < self.max_h + 0.04 or abs(roll)>np.pi/7 or abs(pitch)>np.pi/6:
             r_s = -100
         else:
             r_s = 0

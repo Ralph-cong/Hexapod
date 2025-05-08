@@ -1,7 +1,7 @@
 def generate_stair_urdf_single_link(
     urdf_path="./assets/stair_obstacle.urdf",
     num_steps=15,
-    step_width=1.5,
+    step_width=2.2,
     step_depth=0.2,
     step_height_increment=0.01,
     start_x=0,
