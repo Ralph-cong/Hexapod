@@ -2,6 +2,7 @@ import numpy as np
 import pybullet_data
 import pybullet as p
 import time
+import os
 
 import gymnasium as gym
 from gymnasium import spaces
@@ -186,19 +187,23 @@ class HexapodCPGEnv(gym.Env):
                                     controlMode=p.POSITION_CONTROL, targetPosition=(ankle_target+self.mid_joint_value[2]))
 
     def _get_observation(self):
-        # 获取特定关节的位置
         joint_pos = np.array([p.getJointState(self.robot_id, idx)[0] for idx in range(18)])/np.pi
         joint_vel = np.array([p.getJointState(self.robot_id, idx)[1] for idx in range(18)])/10
-
-        # 获取基座的位置和朝向
         position, orientation = p.getBasePositionAndOrientation(self.robot_id)
-        orientation = np.array(p.getEulerFromQuaternion(orientation))
+        orientation = np.array(p.getEulerFromQuaternion(orientation))  # roll, pitch, yaw
 
-        # 将关节位置和速度信息合并成一个观察向量
+        # # 新增：保存 RPY 到文件
+        # log_dir = "./assets"
+        # os.makedirs(log_dir, exist_ok=True)
+        # log_path = os.path.join(log_dir, "rpy_log.txt")
+        # with open(log_path, "a") as f:
+        #     f.write(f"{orientation[0]},{orientation[1]},{orientation[2]}\n")
+
         observation = np.concatenate(
             [joint_pos, joint_vel, self.goal, position, orientation, self.A, np.array([self.max_h])])
 
         return observation
+
 
     def _compute_reward(self):
 
