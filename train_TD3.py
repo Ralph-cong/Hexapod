@@ -1,0 +1,85 @@
+from stable_baselines3 import TD3
+from stable_baselines3.common.env_util import make_vec_env
+from stable_baselines3.common.callbacks import BaseCallback
+from stable_baselines3.common.noise import NormalActionNoise  # 导入 NormalActionNoise
+import torch
+import os
+import tyro
+from hexapod_env import HexapodCPGEnv
+import time
+import numpy as np
+
+class TimeBasedCheckpointCallback(BaseCallback):
+    def __init__(self, save_path: str, interval_seconds: int = 1200, name_prefix: str = "td3_checkpoint", verbose: int = 1):
+        super().__init__(verbose)
+        self.save_path = save_path
+        self.interval_seconds = interval_seconds
+        self.name_prefix = name_prefix
+        self.last_checkpoint_time = time.time()
+        os.makedirs(self.save_path, exist_ok=True)
+
+    def _on_step(self) -> bool:
+        current_time = time.time()
+        if current_time - self.last_checkpoint_time >= self.interval_seconds:
+            checkpoint_file = os.path.join(
+                self.save_path,
+                f"{self.name_prefix}_{self.num_timesteps}_steps"
+            )
+            self.model.save(checkpoint_file)
+            if self.verbose:
+                print(f"\n[Checkpoint] Saved model to {checkpoint_file} at {time.strftime('%H:%M:%S')}")
+            self.last_checkpoint_time = current_time
+        return True
+
+
+def main(from_scratch: bool = True, steps: int = 500_000, model_path: str = "checkpoints"):
+
+    n_envs = 1
+    env = make_vec_env(lambda: HexapodCPGEnv(render_mode='human'), n_envs=n_envs)
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    os.makedirs(model_path, exist_ok=True)
+    save_path = os.path.join(model_path, "cpg_td3")
+
+    policy_kwargs = dict(net_arch=[256, 256, 256, 256])
+
+    # 创建 NormalActionNoise 来添加噪声
+    action_noise = NormalActionNoise(mean=np.zeros(env.action_space.shape[0]), sigma=np.ones(env.action_space.shape[0])*0.05)
+
+    if from_scratch:
+        model = TD3(
+            "MlpPolicy",
+            env,
+            verbose=1,
+            device=device,
+            learning_rate=1e-4,
+            gamma=0.99,
+            buffer_size=1_000_000,  # TD3 的 buffer size
+            learning_starts=1000,  # TD3 在开始学习之前需要的探索步骤
+            action_noise=action_noise,  # 传递噪声
+            policy_kwargs=policy_kwargs,
+            tensorboard_log="./Tensorboard"
+        )
+    else:
+        model = TD3.load(save_path, env=env, device=device)
+
+    # 使用基于时间的 checkpoint callback
+    checkpoint_callback = TimeBasedCheckpointCallback(
+        save_path=model_path,
+        interval_seconds=200,
+        name_prefix="td3_checkpoint"  # 将 PPO 改为 TD3
+    )
+
+    model.learn(
+        total_timesteps=steps,
+        reset_num_timesteps=False,
+        callback=checkpoint_callback
+    )
+
+    # 保存最终模型
+    model.save(save_path)
+    env.close()
+
+
+if __name__ == "__main__":
+    tyro.cli(main)

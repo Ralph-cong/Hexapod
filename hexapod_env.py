@@ -58,7 +58,7 @@ class HexapodCPGEnv(gym.Env):
 
         self.init_pos = np.array([0.5, 0, 0.17])
         self.init_ori = np.array(p.getQuaternionFromEuler([0, 0, 0]))
-        self.goal = np.array([-2.0, 0])  # 目标位置
+        self.goal = np.array([-3.0, 0])  # 目标位置
 
         # CPG params
         # self.alpha, self.mu, self.omega, self.k = 100, 3, np.pi, 10
@@ -67,10 +67,12 @@ class HexapodCPGEnv(gym.Env):
 
         self.current_step, self.dt = 0, 1./100  # 时间步长
 
-        self.max_h = 0.1
-
+        self.max_h = 0
+        
         # reward weights
         self.w_h, self.w_th, self.w_d = 0.05, 0.15, 0.1
+
+
 
         self.reset()
 
@@ -85,8 +87,8 @@ class HexapodCPGEnv(gym.Env):
 
         # p.loadURDF("./assets/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
         p.loadURDF("plane.urdf", useMaximalCoordinates=True)
-        # p.loadURDF("./assets/stair_obstacle.urdf", basePosition=[-3.3, 0, 0])
-        p.loadURDF("./assets/obstacle.urdf", basePosition=[0, 0, 0],useFixedBase=True)
+        p.loadURDF("./assets/stair_obstacle.urdf", basePosition=[-3.3, 0, 0])
+        # p.loadURDF("./assets/obstacle.urdf", basePosition=[0, 0, 0],useFixedBase=True)
         # p.loadURDF("./assets/obstacle_mul.urdf", basePosition=[0.3, 0, 0],useFixedBase=True)
 
         self.mid_joint_value = [0, 0, 0]
@@ -100,7 +102,7 @@ class HexapodCPGEnv(gym.Env):
             p.resetJointState(self.robot_id, 3*i+3, self.mid_joint_value[2])
 
         self.current_step = 0
-        self.last_position = np.array([0, 0, 0])
+        self.last_position = self.init_pos.copy()
 
         self.Z = np.array([0, self.mu, 0, -self.mu])
 
@@ -225,17 +227,17 @@ class HexapodCPGEnv(gym.Env):
         # Distance Reward
         d_n = np.linalg.norm(pos[:2]-self.init_pos[:2])
         d_t = np.linalg.norm(self.goal-self.init_pos[:2])
-        r_d = np.exp(-(d_n-d_t))
+        r_d = np.exp((d_n-d_t))
         
         # Stability Reward
         roll, pitch, _ = p.getEulerFromQuaternion(ori)
-        if pos[2] < self.max_h + 0.04 or abs(roll)>np.pi/7 or abs(pitch)>np.pi/6:
+        if abs(roll)>np.pi/6 or abs(pitch)>np.pi/6:
             r_s = -100
         else:
             r_s = 0
 
         # Forward Reward
-        if pos[0]-self.last_position[0]< 0.01 and self.current_step > 0:
+        if pos[0]-self.last_position[0] > -0.01 and self.current_step > 0:
             r_f = -0.3
         else:
             r_f = 0
@@ -253,7 +255,7 @@ class HexapodCPGEnv(gym.Env):
             print("Robot has fallen")
             return True
         # check if the robot has moved too far in the Y-axis direction
-        if abs(position[1]-self.init_pos[1]) > 0.8:
+        if abs(position[1]-self.init_pos[1]) > 0.6:
             print("Robot has moved too far in the Y-axis direction")
             return True
         # check if the robot has reached the goal
