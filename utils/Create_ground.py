@@ -1,12 +1,12 @@
 import numpy as np
 
-tile_size = 0.3  # tile 的边长，单位：米
+tile_size = 0.5  # tile 的边长，单位：米
 rows = 10 # y 方向格子数量
 cols = 10 # x 方向格子数量
 tile_mass = 0.1  # 每个 tile 的质量，单位：kg
 
 rng = np.random.default_rng()
-heights = rng.uniform(0.01, 0.07, size=(rows, cols))  # 随机生成高度
+heights = rng.uniform(0.01, 0.04, size=(rows, cols))  # 随机生成高度
 
 urdf_lines = [
     '<?xml version="1.0" ?>',

@@ -85,9 +85,9 @@ class HexapodCPGEnv(gym.Env):
         p.setGravity(0, 0, -9.8)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
-        # p.loadURDF("./assets/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
+        p.loadURDF("./assets/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
         p.loadURDF("plane.urdf", useMaximalCoordinates=True)
-        p.loadURDF("./assets/stair_obstacle.urdf", basePosition=[-3.3, 0, 0])
+        # p.loadURDF("./assets/stair_obstacle.urdf", basePosition=[-3.3, 0, 0])
         # p.loadURDF("./assets/obstacle.urdf", basePosition=[0, 0, 0],useFixedBase=True)
         # p.loadURDF("./assets/obstacle_mul.urdf", basePosition=[0.3, 0, 0],useFixedBase=True)
 
@@ -248,11 +248,14 @@ class HexapodCPGEnv(gym.Env):
     def _check_terminated(self):
         # 检查是否达到了环境的自然结束条件
         position, orientation = p.getBasePositionAndOrientation(self.robot_id)
-        roll, pitch, _ = p.getEulerFromQuaternion(orientation)
+        roll, pitch, yaw = p.getEulerFromQuaternion(orientation)
 
         # check if the robot has fallen
         if abs(roll) > np.pi/3 or abs(pitch) > np.pi/3:  # 检查是否翻倒
             print("Robot has fallen")
+            return True
+        if abs(yaw) > np.pi/2 :  # 检查是否转偏90度以上
+            print("Robot has turned too much")
             return True
         # check if the robot has moved too far in the Y-axis direction
         if abs(position[1]-self.init_pos[1]) > 0.6:
@@ -267,7 +270,7 @@ class HexapodCPGEnv(gym.Env):
 
     def _check_truncated(self):
         # 检查是否因为步数限制或其他非自然原因而结束
-        if self.current_step >= 7000:  
+        if self.current_step >= 9000:  
             return True
         return False
 

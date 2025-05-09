@@ -3,7 +3,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0257"/>
+        <box size="0.5 0.5 0.0283"/>
       </geometry>
       <material name="color_0_0">
         <color rgba="0.59 0.96 1 1"/>
@@ -12,26 +12,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0257"/>
+        <box size="0.5 0.5 0.0283"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000755" ixy="0" ixz="0" iyy="0.000755" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002090" ixy="0" ixz="0" iyy="0.002090" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_0_0" type="fixed">
     <parent link="base_link"/>
     <child link="tile_0_0"/>
-    <origin xyz="-1.350 -1.350 0.013" rpy="0 0 0"/>
+    <origin xyz="-2.250 -2.250 0.014" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_0_1">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0591"/>
+        <box size="0.5 0.5 0.0228"/>
       </geometry>
       <material name="color_0_1">
         <color rgba="1 1 1 1"/>
@@ -40,26 +40,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0591"/>
+        <box size="0.5 0.5 0.0228"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000779" ixy="0" ixz="0" iyy="0.000779" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002088" ixy="0" ixz="0" iyy="0.002088" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_0_1" type="fixed">
     <parent link="base_link"/>
     <child link="tile_0_1"/>
-    <origin xyz="-1.050 -1.350 0.030" rpy="0 0 0"/>
+    <origin xyz="-1.750 -2.250 0.011" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_0_2">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0176"/>
+        <box size="0.5 0.5 0.0268"/>
       </geometry>
       <material name="color_0_2">
         <color rgba="0.59 0.96 1 1"/>
@@ -68,26 +68,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0176"/>
+        <box size="0.5 0.5 0.0268"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000753" ixy="0" ixz="0" iyy="0.000753" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002089" ixy="0" ixz="0" iyy="0.002089" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_0_2" type="fixed">
     <parent link="base_link"/>
     <child link="tile_0_2"/>
-    <origin xyz="-0.750 -1.350 0.009" rpy="0 0 0"/>
+    <origin xyz="-1.250 -2.250 0.013" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_0_3">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0463"/>
+        <box size="0.5 0.5 0.0136"/>
       </geometry>
       <material name="color_0_3">
         <color rgba="1 1 1 1"/>
@@ -96,26 +96,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0463"/>
+        <box size="0.5 0.5 0.0136"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000768" ixy="0" ixz="0" iyy="0.000768" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_0_3" type="fixed">
     <parent link="base_link"/>
     <child link="tile_0_3"/>
-    <origin xyz="-0.450 -1.350 0.023" rpy="0 0 0"/>
+    <origin xyz="-0.750 -2.250 0.007" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_0_4">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0232"/>
+        <box size="0.5 0.5 0.0257"/>
       </geometry>
       <material name="color_0_4">
         <color rgba="0.59 0.96 1 1"/>
@@ -124,26 +124,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0232"/>
+        <box size="0.5 0.5 0.0257"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000755" ixy="0" ixz="0" iyy="0.000755" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002089" ixy="0" ixz="0" iyy="0.002089" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_0_4" type="fixed">
     <parent link="base_link"/>
     <child link="tile_0_4"/>
-    <origin xyz="-0.150 -1.350 0.012" rpy="0 0 0"/>
+    <origin xyz="-0.250 -2.250 0.013" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_0_5">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0586"/>
+        <box size="0.5 0.5 0.0231"/>
       </geometry>
       <material name="color_0_5">
         <color rgba="1 1 1 1"/>
@@ -152,26 +152,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0586"/>
+        <box size="0.5 0.5 0.0231"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000779" ixy="0" ixz="0" iyy="0.000779" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002088" ixy="0" ixz="0" iyy="0.002088" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_0_5" type="fixed">
     <parent link="base_link"/>
     <child link="tile_0_5"/>
-    <origin xyz="0.150 -1.350 0.029" rpy="0 0 0"/>
+    <origin xyz="0.250 -2.250 0.012" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_0_6">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0366"/>
+        <box size="0.5 0.5 0.0373"/>
       </geometry>
       <material name="color_0_6">
         <color rgba="0.59 0.96 1 1"/>
@@ -180,26 +180,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0366"/>
+        <box size="0.5 0.5 0.0373"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000761" ixy="0" ixz="0" iyy="0.000761" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002095" ixy="0" ixz="0" iyy="0.002095" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_0_6" type="fixed">
     <parent link="base_link"/>
     <child link="tile_0_6"/>
-    <origin xyz="0.450 -1.350 0.018" rpy="0 0 0"/>
+    <origin xyz="0.750 -2.250 0.019" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_0_7">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0557"/>
+        <box size="0.5 0.5 0.0286"/>
       </geometry>
       <material name="color_0_7">
         <color rgba="1 1 1 1"/>
@@ -208,26 +208,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0557"/>
+        <box size="0.5 0.5 0.0286"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000776" ixy="0" ixz="0" iyy="0.000776" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002090" ixy="0" ixz="0" iyy="0.002090" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_0_7" type="fixed">
     <parent link="base_link"/>
     <child link="tile_0_7"/>
-    <origin xyz="0.750 -1.350 0.028" rpy="0 0 0"/>
+    <origin xyz="1.250 -2.250 0.014" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_0_8">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0607"/>
+        <box size="0.5 0.5 0.0141"/>
       </geometry>
       <material name="color_0_8">
         <color rgba="0.59 0.96 1 1"/>
@@ -236,26 +236,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0607"/>
+        <box size="0.5 0.5 0.0141"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000781" ixy="0" ixz="0" iyy="0.000781" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_0_8" type="fixed">
     <parent link="base_link"/>
     <child link="tile_0_8"/>
-    <origin xyz="1.050 -1.350 0.030" rpy="0 0 0"/>
+    <origin xyz="1.750 -2.250 0.007" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_0_9">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0369"/>
+        <box size="0.5 0.5 0.0117"/>
       </geometry>
       <material name="color_0_9">
         <color rgba="1 1 1 1"/>
@@ -264,26 +264,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0369"/>
+        <box size="0.5 0.5 0.0117"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000761" ixy="0" ixz="0" iyy="0.000761" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002084" ixy="0" ixz="0" iyy="0.002084" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_0_9" type="fixed">
     <parent link="base_link"/>
     <child link="tile_0_9"/>
-    <origin xyz="1.350 -1.350 0.018" rpy="0 0 0"/>
+    <origin xyz="2.250 -2.250 0.006" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_1_0">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0667"/>
+        <box size="0.5 0.5 0.0310"/>
       </geometry>
       <material name="color_1_0">
         <color rgba="1 1 1 1"/>
@@ -292,26 +292,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0667"/>
+        <box size="0.5 0.5 0.0310"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000787" ixy="0" ixz="0" iyy="0.000787" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002091" ixy="0" ixz="0" iyy="0.002091" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_1_0" type="fixed">
     <parent link="base_link"/>
     <child link="tile_1_0"/>
-    <origin xyz="-1.350 -1.050 0.033" rpy="0 0 0"/>
+    <origin xyz="-2.250 -1.750 0.016" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_1_1">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0224"/>
+        <box size="0.5 0.5 0.0266"/>
       </geometry>
       <material name="color_1_1">
         <color rgba="0.59 0.96 1 1"/>
@@ -320,26 +320,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0224"/>
+        <box size="0.5 0.5 0.0266"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000754" ixy="0" ixz="0" iyy="0.000754" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002089" ixy="0" ixz="0" iyy="0.002089" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_1_1" type="fixed">
     <parent link="base_link"/>
     <child link="tile_1_1"/>
-    <origin xyz="-1.050 -1.050 0.011" rpy="0 0 0"/>
+    <origin xyz="-1.750 -1.750 0.013" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_1_2">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0621"/>
+        <box size="0.5 0.5 0.0386"/>
       </geometry>
       <material name="color_1_2">
         <color rgba="1 1 1 1"/>
@@ -348,26 +348,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0621"/>
+        <box size="0.5 0.5 0.0386"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000782" ixy="0" ixz="0" iyy="0.000782" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002096" ixy="0" ixz="0" iyy="0.002096" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_1_2" type="fixed">
     <parent link="base_link"/>
     <child link="tile_1_2"/>
-    <origin xyz="-0.750 -1.050 0.031" rpy="0 0 0"/>
+    <origin xyz="-1.250 -1.750 0.019" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_1_3">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0506"/>
+        <box size="0.5 0.5 0.0319"/>
       </geometry>
       <material name="color_1_3">
         <color rgba="0.59 0.96 1 1"/>
@@ -376,26 +376,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0506"/>
+        <box size="0.5 0.5 0.0319"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000771" ixy="0" ixz="0" iyy="0.000771" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002092" ixy="0" ixz="0" iyy="0.002092" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_1_3" type="fixed">
     <parent link="base_link"/>
     <child link="tile_1_3"/>
-    <origin xyz="-0.450 -1.050 0.025" rpy="0 0 0"/>
+    <origin xyz="-0.750 -1.750 0.016" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_1_4">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0327"/>
+        <box size="0.5 0.5 0.0356"/>
       </geometry>
       <material name="color_1_4">
         <color rgba="1 1 1 1"/>
@@ -404,26 +404,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0327"/>
+        <box size="0.5 0.5 0.0356"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000759" ixy="0" ixz="0" iyy="0.000759" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002094" ixy="0" ixz="0" iyy="0.002094" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_1_4" type="fixed">
     <parent link="base_link"/>
     <child link="tile_1_4"/>
-    <origin xyz="-0.150 -1.050 0.016" rpy="0 0 0"/>
+    <origin xyz="-0.250 -1.750 0.018" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_1_5">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0503"/>
+        <box size="0.5 0.5 0.0257"/>
       </geometry>
       <material name="color_1_5">
         <color rgba="0.59 0.96 1 1"/>
@@ -432,26 +432,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0503"/>
+        <box size="0.5 0.5 0.0257"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000771" ixy="0" ixz="0" iyy="0.000771" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002089" ixy="0" ixz="0" iyy="0.002089" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_1_5" type="fixed">
     <parent link="base_link"/>
     <child link="tile_1_5"/>
-    <origin xyz="0.150 -1.050 0.025" rpy="0 0 0"/>
+    <origin xyz="0.250 -1.750 0.013" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_1_6">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0238"/>
+        <box size="0.5 0.5 0.0351"/>
       </geometry>
       <material name="color_1_6">
         <color rgba="1 1 1 1"/>
@@ -460,26 +460,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0238"/>
+        <box size="0.5 0.5 0.0351"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000755" ixy="0" ixz="0" iyy="0.000755" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002094" ixy="0" ixz="0" iyy="0.002094" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_1_6" type="fixed">
     <parent link="base_link"/>
     <child link="tile_1_6"/>
-    <origin xyz="0.450 -1.050 0.012" rpy="0 0 0"/>
+    <origin xyz="0.750 -1.750 0.018" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_1_7">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0156"/>
+        <box size="0.5 0.5 0.0208"/>
       </geometry>
       <material name="color_1_7">
         <color rgba="0.59 0.96 1 1"/>
@@ -488,26 +488,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0156"/>
+        <box size="0.5 0.5 0.0208"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000752" ixy="0" ixz="0" iyy="0.000752" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002087" ixy="0" ixz="0" iyy="0.002087" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_1_7" type="fixed">
     <parent link="base_link"/>
     <child link="tile_1_7"/>
-    <origin xyz="0.750 -1.050 0.008" rpy="0 0 0"/>
+    <origin xyz="1.250 -1.750 0.010" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_1_8">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0585"/>
+        <box size="0.5 0.5 0.0246"/>
       </geometry>
       <material name="color_1_8">
         <color rgba="1 1 1 1"/>
@@ -516,26 +516,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0585"/>
+        <box size="0.5 0.5 0.0246"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000779" ixy="0" ixz="0" iyy="0.000779" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002088" ixy="0" ixz="0" iyy="0.002088" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_1_8" type="fixed">
     <parent link="base_link"/>
     <child link="tile_1_8"/>
-    <origin xyz="1.050 -1.050 0.029" rpy="0 0 0"/>
+    <origin xyz="1.750 -1.750 0.012" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_1_9">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0207"/>
+        <box size="0.5 0.5 0.0238"/>
       </geometry>
       <material name="color_1_9">
         <color rgba="0.59 0.96 1 1"/>
@@ -544,26 +544,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0207"/>
+        <box size="0.5 0.5 0.0238"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000754" ixy="0" ixz="0" iyy="0.000754" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002088" ixy="0" ixz="0" iyy="0.002088" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_1_9" type="fixed">
     <parent link="base_link"/>
     <child link="tile_1_9"/>
-    <origin xyz="1.350 -1.050 0.010" rpy="0 0 0"/>
+    <origin xyz="2.250 -1.750 0.012" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_2_0">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0239"/>
+        <box size="0.5 0.5 0.0302"/>
       </geometry>
       <material name="color_2_0">
         <color rgba="0.59 0.96 1 1"/>
@@ -572,26 +572,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0239"/>
+        <box size="0.5 0.5 0.0302"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000755" ixy="0" ixz="0" iyy="0.000755" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002091" ixy="0" ixz="0" iyy="0.002091" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_2_0" type="fixed">
     <parent link="base_link"/>
     <child link="tile_2_0"/>
-    <origin xyz="-1.350 -0.750 0.012" rpy="0 0 0"/>
+    <origin xyz="-2.250 -1.250 0.015" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_2_1">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0152"/>
+        <box size="0.5 0.5 0.0280"/>
       </geometry>
       <material name="color_2_1">
         <color rgba="1 1 1 1"/>
@@ -600,26 +600,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0152"/>
+        <box size="0.5 0.5 0.0280"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000752" ixy="0" ixz="0" iyy="0.000752" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002090" ixy="0" ixz="0" iyy="0.002090" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_2_1" type="fixed">
     <parent link="base_link"/>
     <child link="tile_2_1"/>
-    <origin xyz="-1.050 -0.750 0.008" rpy="0 0 0"/>
+    <origin xyz="-1.750 -1.250 0.014" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_2_2">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0242"/>
+        <box size="0.5 0.5 0.0313"/>
       </geometry>
       <material name="color_2_2">
         <color rgba="0.59 0.96 1 1"/>
@@ -628,26 +628,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0242"/>
+        <box size="0.5 0.5 0.0313"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000755" ixy="0" ixz="0" iyy="0.000755" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002091" ixy="0" ixz="0" iyy="0.002091" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_2_2" type="fixed">
     <parent link="base_link"/>
     <child link="tile_2_2"/>
-    <origin xyz="-0.750 -0.750 0.012" rpy="0 0 0"/>
+    <origin xyz="-1.250 -1.250 0.016" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_2_3">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0656"/>
+        <box size="0.5 0.5 0.0306"/>
       </geometry>
       <material name="color_2_3">
         <color rgba="1 1 1 1"/>
@@ -656,26 +656,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0656"/>
+        <box size="0.5 0.5 0.0306"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000786" ixy="0" ixz="0" iyy="0.000786" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002091" ixy="0" ixz="0" iyy="0.002091" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_2_3" type="fixed">
     <parent link="base_link"/>
     <child link="tile_2_3"/>
-    <origin xyz="-0.450 -0.750 0.033" rpy="0 0 0"/>
+    <origin xyz="-0.750 -1.250 0.015" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_2_4">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0272"/>
+        <box size="0.5 0.5 0.0352"/>
       </geometry>
       <material name="color_2_4">
         <color rgba="0.59 0.96 1 1"/>
@@ -684,26 +684,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0272"/>
+        <box size="0.5 0.5 0.0352"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000756" ixy="0" ixz="0" iyy="0.000756" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002094" ixy="0" ixz="0" iyy="0.002094" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_2_4" type="fixed">
     <parent link="base_link"/>
     <child link="tile_2_4"/>
-    <origin xyz="-0.150 -0.750 0.014" rpy="0 0 0"/>
+    <origin xyz="-0.250 -1.250 0.018" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_2_5">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0690"/>
+        <box size="0.5 0.5 0.0381"/>
       </geometry>
       <material name="color_2_5">
         <color rgba="1 1 1 1"/>
@@ -712,26 +712,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0690"/>
+        <box size="0.5 0.5 0.0381"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000790" ixy="0" ixz="0" iyy="0.000790" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002095" ixy="0" ixz="0" iyy="0.002095" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_2_5" type="fixed">
     <parent link="base_link"/>
     <child link="tile_2_5"/>
-    <origin xyz="0.150 -0.750 0.035" rpy="0 0 0"/>
+    <origin xyz="0.250 -1.250 0.019" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_2_6">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0614"/>
+        <box size="0.5 0.5 0.0207"/>
       </geometry>
       <material name="color_2_6">
         <color rgba="0.59 0.96 1 1"/>
@@ -740,26 +740,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0614"/>
+        <box size="0.5 0.5 0.0207"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000781" ixy="0" ixz="0" iyy="0.000781" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002087" ixy="0" ixz="0" iyy="0.002087" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_2_6" type="fixed">
     <parent link="base_link"/>
     <child link="tile_2_6"/>
-    <origin xyz="0.450 -0.750 0.031" rpy="0 0 0"/>
+    <origin xyz="0.750 -1.250 0.010" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_2_7">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0283"/>
+        <box size="0.5 0.5 0.0161"/>
       </geometry>
       <material name="color_2_7">
         <color rgba="1 1 1 1"/>
@@ -768,26 +768,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0283"/>
+        <box size="0.5 0.5 0.0161"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000757" ixy="0" ixz="0" iyy="0.000757" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_2_7" type="fixed">
     <parent link="base_link"/>
     <child link="tile_2_7"/>
-    <origin xyz="0.750 -0.750 0.014" rpy="0 0 0"/>
+    <origin xyz="1.250 -1.250 0.008" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_2_8">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0212"/>
+        <box size="0.5 0.5 0.0386"/>
       </geometry>
       <material name="color_2_8">
         <color rgba="0.59 0.96 1 1"/>
@@ -796,26 +796,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0212"/>
+        <box size="0.5 0.5 0.0386"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000754" ixy="0" ixz="0" iyy="0.000754" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002096" ixy="0" ixz="0" iyy="0.002096" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_2_8" type="fixed">
     <parent link="base_link"/>
     <child link="tile_2_8"/>
-    <origin xyz="1.050 -0.750 0.011" rpy="0 0 0"/>
+    <origin xyz="1.750 -1.250 0.019" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_2_9">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0162"/>
+        <box size="0.5 0.5 0.0180"/>
       </geometry>
       <material name="color_2_9">
         <color rgba="1 1 1 1"/>
@@ -824,26 +824,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0162"/>
+        <box size="0.5 0.5 0.0180"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000752" ixy="0" ixz="0" iyy="0.000752" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002086" ixy="0" ixz="0" iyy="0.002086" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_2_9" type="fixed">
     <parent link="base_link"/>
     <child link="tile_2_9"/>
-    <origin xyz="1.350 -0.750 0.008" rpy="0 0 0"/>
+    <origin xyz="2.250 -1.250 0.009" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_3_0">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0491"/>
+        <box size="0.5 0.5 0.0366"/>
       </geometry>
       <material name="color_3_0">
         <color rgba="1 1 1 1"/>
@@ -852,26 +852,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0491"/>
+        <box size="0.5 0.5 0.0366"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000770" ixy="0" ixz="0" iyy="0.000770" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002094" ixy="0" ixz="0" iyy="0.002094" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_3_0" type="fixed">
     <parent link="base_link"/>
     <child link="tile_3_0"/>
-    <origin xyz="-1.350 -0.450 0.025" rpy="0 0 0"/>
+    <origin xyz="-2.250 -0.750 0.018" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_3_1">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0131"/>
+        <box size="0.5 0.5 0.0280"/>
       </geometry>
       <material name="color_3_1">
         <color rgba="0.59 0.96 1 1"/>
@@ -880,26 +880,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0131"/>
+        <box size="0.5 0.5 0.0280"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000751" ixy="0" ixz="0" iyy="0.000751" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002090" ixy="0" ixz="0" iyy="0.002090" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_3_1" type="fixed">
     <parent link="base_link"/>
     <child link="tile_3_1"/>
-    <origin xyz="-1.050 -0.450 0.007" rpy="0 0 0"/>
+    <origin xyz="-1.750 -0.750 0.014" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_3_2">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0341"/>
+        <box size="0.5 0.5 0.0357"/>
       </geometry>
       <material name="color_3_2">
         <color rgba="1 1 1 1"/>
@@ -908,26 +908,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0341"/>
+        <box size="0.5 0.5 0.0357"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000760" ixy="0" ixz="0" iyy="0.000760" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002094" ixy="0" ixz="0" iyy="0.002094" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_3_2" type="fixed">
     <parent link="base_link"/>
     <child link="tile_3_2"/>
-    <origin xyz="-0.750 -0.450 0.017" rpy="0 0 0"/>
+    <origin xyz="-1.250 -0.750 0.018" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_3_3">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0304"/>
+        <box size="0.5 0.5 0.0306"/>
       </geometry>
       <material name="color_3_3">
         <color rgba="0.59 0.96 1 1"/>
@@ -936,26 +936,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0304"/>
+        <box size="0.5 0.5 0.0306"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000758" ixy="0" ixz="0" iyy="0.000758" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002091" ixy="0" ixz="0" iyy="0.002091" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_3_3" type="fixed">
     <parent link="base_link"/>
     <child link="tile_3_3"/>
-    <origin xyz="-0.450 -0.450 0.015" rpy="0 0 0"/>
+    <origin xyz="-0.750 -0.750 0.015" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_3_4">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0573"/>
+        <box size="0.5 0.5 0.0237"/>
       </geometry>
       <material name="color_3_4">
         <color rgba="1 1 1 1"/>
@@ -964,26 +964,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0573"/>
+        <box size="0.5 0.5 0.0237"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000777" ixy="0" ixz="0" iyy="0.000777" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002088" ixy="0" ixz="0" iyy="0.002088" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_3_4" type="fixed">
     <parent link="base_link"/>
     <child link="tile_3_4"/>
-    <origin xyz="-0.150 -0.450 0.029" rpy="0 0 0"/>
+    <origin xyz="-0.250 -0.750 0.012" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_3_5">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0109"/>
+        <box size="0.5 0.5 0.0328"/>
       </geometry>
       <material name="color_3_5">
         <color rgba="0.59 0.96 1 1"/>
@@ -992,26 +992,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0109"/>
+        <box size="0.5 0.5 0.0328"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000751" ixy="0" ixz="0" iyy="0.000751" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002092" ixy="0" ixz="0" iyy="0.002092" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_3_5" type="fixed">
     <parent link="base_link"/>
     <child link="tile_3_5"/>
-    <origin xyz="0.150 -0.450 0.005" rpy="0 0 0"/>
+    <origin xyz="0.250 -0.750 0.016" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_3_6">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0338"/>
+        <box size="0.5 0.5 0.0205"/>
       </geometry>
       <material name="color_3_6">
         <color rgba="1 1 1 1"/>
@@ -1020,26 +1020,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0338"/>
+        <box size="0.5 0.5 0.0205"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000760" ixy="0" ixz="0" iyy="0.000760" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002087" ixy="0" ixz="0" iyy="0.002087" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_3_6" type="fixed">
     <parent link="base_link"/>
     <child link="tile_3_6"/>
-    <origin xyz="0.450 -0.450 0.017" rpy="0 0 0"/>
+    <origin xyz="0.750 -0.750 0.010" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_3_7">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0595"/>
+        <box size="0.5 0.5 0.0370"/>
       </geometry>
       <material name="color_3_7">
         <color rgba="0.59 0.96 1 1"/>
@@ -1048,26 +1048,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0595"/>
+        <box size="0.5 0.5 0.0370"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000779" ixy="0" ixz="0" iyy="0.000779" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002095" ixy="0" ixz="0" iyy="0.002095" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_3_7" type="fixed">
     <parent link="base_link"/>
     <child link="tile_3_7"/>
-    <origin xyz="0.750 -0.450 0.030" rpy="0 0 0"/>
+    <origin xyz="1.250 -0.750 0.018" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_3_8">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0517"/>
+        <box size="0.5 0.5 0.0274"/>
       </geometry>
       <material name="color_3_8">
         <color rgba="1 1 1 1"/>
@@ -1076,26 +1076,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0517"/>
+        <box size="0.5 0.5 0.0274"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000772" ixy="0" ixz="0" iyy="0.000772" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002090" ixy="0" ixz="0" iyy="0.002090" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_3_8" type="fixed">
     <parent link="base_link"/>
     <child link="tile_3_8"/>
-    <origin xyz="1.050 -0.450 0.026" rpy="0 0 0"/>
+    <origin xyz="1.750 -0.750 0.014" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_3_9">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0587"/>
+        <box size="0.5 0.5 0.0296"/>
       </geometry>
       <material name="color_3_9">
         <color rgba="0.59 0.96 1 1"/>
@@ -1104,26 +1104,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0587"/>
+        <box size="0.5 0.5 0.0296"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000779" ixy="0" ixz="0" iyy="0.000779" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002091" ixy="0" ixz="0" iyy="0.002091" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_3_9" type="fixed">
     <parent link="base_link"/>
     <child link="tile_3_9"/>
-    <origin xyz="1.350 -0.450 0.029" rpy="0 0 0"/>
+    <origin xyz="2.250 -0.750 0.015" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_4_0">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0244"/>
+        <box size="0.5 0.5 0.0293"/>
       </geometry>
       <material name="color_4_0">
         <color rgba="0.59 0.96 1 1"/>
@@ -1132,26 +1132,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0244"/>
+        <box size="0.5 0.5 0.0293"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000755" ixy="0" ixz="0" iyy="0.000755" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002090" ixy="0" ixz="0" iyy="0.002090" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_4_0" type="fixed">
     <parent link="base_link"/>
     <child link="tile_4_0"/>
-    <origin xyz="-1.350 -0.150 0.012" rpy="0 0 0"/>
+    <origin xyz="-2.250 -0.250 0.015" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_4_1">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0394"/>
+        <box size="0.5 0.5 0.0317"/>
       </geometry>
       <material name="color_4_1">
         <color rgba="1 1 1 1"/>
@@ -1160,26 +1160,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0394"/>
+        <box size="0.5 0.5 0.0317"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000763" ixy="0" ixz="0" iyy="0.000763" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002092" ixy="0" ixz="0" iyy="0.002092" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_4_1" type="fixed">
     <parent link="base_link"/>
     <child link="tile_4_1"/>
-    <origin xyz="-1.050 -0.150 0.020" rpy="0 0 0"/>
+    <origin xyz="-1.750 -0.250 0.016" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_4_2">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0551"/>
+        <box size="0.5 0.5 0.0270"/>
       </geometry>
       <material name="color_4_2">
         <color rgba="0.59 0.96 1 1"/>
@@ -1188,26 +1188,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0551"/>
+        <box size="0.5 0.5 0.0270"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000775" ixy="0" ixz="0" iyy="0.000775" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002089" ixy="0" ixz="0" iyy="0.002089" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_4_2" type="fixed">
     <parent link="base_link"/>
     <child link="tile_4_2"/>
-    <origin xyz="-0.750 -0.150 0.028" rpy="0 0 0"/>
+    <origin xyz="-1.250 -0.250 0.014" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_4_3">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0658"/>
+        <box size="0.5 0.5 0.0273"/>
       </geometry>
       <material name="color_4_3">
         <color rgba="1 1 1 1"/>
@@ -1216,26 +1216,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0658"/>
+        <box size="0.5 0.5 0.0273"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000786" ixy="0" ixz="0" iyy="0.000786" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002090" ixy="0" ixz="0" iyy="0.002090" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_4_3" type="fixed">
     <parent link="base_link"/>
     <child link="tile_4_3"/>
-    <origin xyz="-0.450 -0.150 0.033" rpy="0 0 0"/>
+    <origin xyz="-0.750 -0.250 0.014" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_4_4">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0649"/>
+        <box size="0.5 0.5 0.0156"/>
       </geometry>
       <material name="color_4_4">
         <color rgba="0.59 0.96 1 1"/>
@@ -1244,26 +1244,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0649"/>
+        <box size="0.5 0.5 0.0156"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000785" ixy="0" ixz="0" iyy="0.000785" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_4_4" type="fixed">
     <parent link="base_link"/>
     <child link="tile_4_4"/>
-    <origin xyz="-0.150 -0.150 0.032" rpy="0 0 0"/>
+    <origin xyz="-0.250 -0.250 0.008" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_4_5">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0441"/>
+        <box size="0.5 0.5 0.0213"/>
       </geometry>
       <material name="color_4_5">
         <color rgba="1 1 1 1"/>
@@ -1272,26 +1272,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0441"/>
+        <box size="0.5 0.5 0.0213"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000766" ixy="0" ixz="0" iyy="0.000766" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002087" ixy="0" ixz="0" iyy="0.002087" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_4_5" type="fixed">
     <parent link="base_link"/>
     <child link="tile_4_5"/>
-    <origin xyz="0.150 -0.150 0.022" rpy="0 0 0"/>
+    <origin xyz="0.250 -0.250 0.011" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_4_6">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0331"/>
+        <box size="0.5 0.5 0.0126"/>
       </geometry>
       <material name="color_4_6">
         <color rgba="0.59 0.96 1 1"/>
@@ -1300,26 +1300,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0331"/>
+        <box size="0.5 0.5 0.0126"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000759" ixy="0" ixz="0" iyy="0.000759" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_4_6" type="fixed">
     <parent link="base_link"/>
     <child link="tile_4_6"/>
-    <origin xyz="0.450 -0.150 0.017" rpy="0 0 0"/>
+    <origin xyz="0.750 -0.250 0.006" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_4_7">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0284"/>
+        <box size="0.5 0.5 0.0397"/>
       </geometry>
       <material name="color_4_7">
         <color rgba="1 1 1 1"/>
@@ -1328,26 +1328,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0284"/>
+        <box size="0.5 0.5 0.0397"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000757" ixy="0" ixz="0" iyy="0.000757" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002096" ixy="0" ixz="0" iyy="0.002096" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_4_7" type="fixed">
     <parent link="base_link"/>
     <child link="tile_4_7"/>
-    <origin xyz="0.750 -0.150 0.014" rpy="0 0 0"/>
+    <origin xyz="1.250 -0.250 0.020" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_4_8">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0299"/>
+        <box size="0.5 0.5 0.0347"/>
       </geometry>
       <material name="color_4_8">
         <color rgba="0.59 0.96 1 1"/>
@@ -1356,26 +1356,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0299"/>
+        <box size="0.5 0.5 0.0347"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000757" ixy="0" ixz="0" iyy="0.000757" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002093" ixy="0" ixz="0" iyy="0.002093" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_4_8" type="fixed">
     <parent link="base_link"/>
     <child link="tile_4_8"/>
-    <origin xyz="1.050 -0.150 0.015" rpy="0 0 0"/>
+    <origin xyz="1.750 -0.250 0.017" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_4_9">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0428"/>
+        <box size="0.5 0.5 0.0109"/>
       </geometry>
       <material name="color_4_9">
         <color rgba="1 1 1 1"/>
@@ -1384,26 +1384,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0428"/>
+        <box size="0.5 0.5 0.0109"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000765" ixy="0" ixz="0" iyy="0.000765" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002084" ixy="0" ixz="0" iyy="0.002084" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_4_9" type="fixed">
     <parent link="base_link"/>
     <child link="tile_4_9"/>
-    <origin xyz="1.350 -0.150 0.021" rpy="0 0 0"/>
+    <origin xyz="2.250 -0.250 0.005" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_5_0">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0231"/>
+        <box size="0.5 0.5 0.0384"/>
       </geometry>
       <material name="color_5_0">
         <color rgba="1 1 1 1"/>
@@ -1412,26 +1412,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0231"/>
+        <box size="0.5 0.5 0.0384"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000754" ixy="0" ixz="0" iyy="0.000754" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002096" ixy="0" ixz="0" iyy="0.002096" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_5_0" type="fixed">
     <parent link="base_link"/>
     <child link="tile_5_0"/>
-    <origin xyz="-1.350 0.150 0.012" rpy="0 0 0"/>
+    <origin xyz="-2.250 0.250 0.019" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_5_1">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0280"/>
+        <box size="0.5 0.5 0.0275"/>
       </geometry>
       <material name="color_5_1">
         <color rgba="0.59 0.96 1 1"/>
@@ -1440,26 +1440,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0280"/>
+        <box size="0.5 0.5 0.0275"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000757" ixy="0" ixz="0" iyy="0.000757" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002090" ixy="0" ixz="0" iyy="0.002090" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_5_1" type="fixed">
     <parent link="base_link"/>
     <child link="tile_5_1"/>
-    <origin xyz="-1.050 0.150 0.014" rpy="0 0 0"/>
+    <origin xyz="-1.750 0.250 0.014" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_5_2">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0507"/>
+        <box size="0.5 0.5 0.0135"/>
       </geometry>
       <material name="color_5_2">
         <color rgba="1 1 1 1"/>
@@ -1468,26 +1468,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0507"/>
+        <box size="0.5 0.5 0.0135"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000771" ixy="0" ixz="0" iyy="0.000771" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_5_2" type="fixed">
     <parent link="base_link"/>
     <child link="tile_5_2"/>
-    <origin xyz="-0.750 0.150 0.025" rpy="0 0 0"/>
+    <origin xyz="-1.250 0.250 0.007" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_5_3">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0230"/>
+        <box size="0.5 0.5 0.0103"/>
       </geometry>
       <material name="color_5_3">
         <color rgba="0.59 0.96 1 1"/>
@@ -1496,26 +1496,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0230"/>
+        <box size="0.5 0.5 0.0103"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000754" ixy="0" ixz="0" iyy="0.000754" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002084" ixy="0" ixz="0" iyy="0.002084" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_5_3" type="fixed">
     <parent link="base_link"/>
     <child link="tile_5_3"/>
-    <origin xyz="-0.450 0.150 0.012" rpy="0 0 0"/>
+    <origin xyz="-0.750 0.250 0.005" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_5_4">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0576"/>
+        <box size="0.5 0.5 0.0352"/>
       </geometry>
       <material name="color_5_4">
         <color rgba="1 1 1 1"/>
@@ -1524,26 +1524,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0576"/>
+        <box size="0.5 0.5 0.0352"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000778" ixy="0" ixz="0" iyy="0.000778" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002094" ixy="0" ixz="0" iyy="0.002094" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_5_4" type="fixed">
     <parent link="base_link"/>
     <child link="tile_5_4"/>
-    <origin xyz="-0.150 0.150 0.029" rpy="0 0 0"/>
+    <origin xyz="-0.250 0.250 0.018" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_5_5">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0429"/>
+        <box size="0.5 0.5 0.0156"/>
       </geometry>
       <material name="color_5_5">
         <color rgba="0.59 0.96 1 1"/>
@@ -1552,26 +1552,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0429"/>
+        <box size="0.5 0.5 0.0156"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000765" ixy="0" ixz="0" iyy="0.000765" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_5_5" type="fixed">
     <parent link="base_link"/>
     <child link="tile_5_5"/>
-    <origin xyz="0.150 0.150 0.021" rpy="0 0 0"/>
+    <origin xyz="0.250 0.250 0.008" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_5_6">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0589"/>
+        <box size="0.5 0.5 0.0354"/>
       </geometry>
       <material name="color_5_6">
         <color rgba="1 1 1 1"/>
@@ -1580,26 +1580,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0589"/>
+        <box size="0.5 0.5 0.0354"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000779" ixy="0" ixz="0" iyy="0.000779" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002094" ixy="0" ixz="0" iyy="0.002094" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_5_6" type="fixed">
     <parent link="base_link"/>
     <child link="tile_5_6"/>
-    <origin xyz="0.450 0.150 0.029" rpy="0 0 0"/>
+    <origin xyz="0.750 0.250 0.018" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_5_7">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0492"/>
+        <box size="0.5 0.5 0.0207"/>
       </geometry>
       <material name="color_5_7">
         <color rgba="0.59 0.96 1 1"/>
@@ -1608,26 +1608,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0492"/>
+        <box size="0.5 0.5 0.0207"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000770" ixy="0" ixz="0" iyy="0.000770" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002087" ixy="0" ixz="0" iyy="0.002087" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_5_7" type="fixed">
     <parent link="base_link"/>
     <child link="tile_5_7"/>
-    <origin xyz="0.750 0.150 0.025" rpy="0 0 0"/>
+    <origin xyz="1.250 0.250 0.010" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_5_8">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0182"/>
+        <box size="0.5 0.5 0.0123"/>
       </geometry>
       <material name="color_5_8">
         <color rgba="1 1 1 1"/>
@@ -1636,26 +1636,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0182"/>
+        <box size="0.5 0.5 0.0123"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000753" ixy="0" ixz="0" iyy="0.000753" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_5_8" type="fixed">
     <parent link="base_link"/>
     <child link="tile_5_8"/>
-    <origin xyz="1.050 0.150 0.009" rpy="0 0 0"/>
+    <origin xyz="1.750 0.250 0.006" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_5_9">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0571"/>
+        <box size="0.5 0.5 0.0383"/>
       </geometry>
       <material name="color_5_9">
         <color rgba="0.59 0.96 1 1"/>
@@ -1664,26 +1664,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0571"/>
+        <box size="0.5 0.5 0.0383"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000777" ixy="0" ixz="0" iyy="0.000777" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002096" ixy="0" ixz="0" iyy="0.002096" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_5_9" type="fixed">
     <parent link="base_link"/>
     <child link="tile_5_9"/>
-    <origin xyz="1.350 0.150 0.029" rpy="0 0 0"/>
+    <origin xyz="2.250 0.250 0.019" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_6_0">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0375"/>
+        <box size="0.5 0.5 0.0119"/>
       </geometry>
       <material name="color_6_0">
         <color rgba="0.59 0.96 1 1"/>
@@ -1692,26 +1692,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0375"/>
+        <box size="0.5 0.5 0.0119"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000762" ixy="0" ixz="0" iyy="0.000762" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_6_0" type="fixed">
     <parent link="base_link"/>
     <child link="tile_6_0"/>
-    <origin xyz="-1.350 0.450 0.019" rpy="0 0 0"/>
+    <origin xyz="-2.250 0.750 0.006" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_6_1">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0534"/>
+        <box size="0.5 0.5 0.0108"/>
       </geometry>
       <material name="color_6_1">
         <color rgba="1 1 1 1"/>
@@ -1720,26 +1720,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0534"/>
+        <box size="0.5 0.5 0.0108"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000774" ixy="0" ixz="0" iyy="0.000774" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002084" ixy="0" ixz="0" iyy="0.002084" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_6_1" type="fixed">
     <parent link="base_link"/>
     <child link="tile_6_1"/>
-    <origin xyz="-1.050 0.450 0.027" rpy="0 0 0"/>
+    <origin xyz="-1.750 0.750 0.005" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_6_2">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0197"/>
+        <box size="0.5 0.5 0.0350"/>
       </geometry>
       <material name="color_6_2">
         <color rgba="0.59 0.96 1 1"/>
@@ -1748,26 +1748,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0197"/>
+        <box size="0.5 0.5 0.0350"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000753" ixy="0" ixz="0" iyy="0.000753" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002094" ixy="0" ixz="0" iyy="0.002094" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_6_2" type="fixed">
     <parent link="base_link"/>
     <child link="tile_6_2"/>
-    <origin xyz="-0.750 0.450 0.010" rpy="0 0 0"/>
+    <origin xyz="-1.250 0.750 0.017" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_6_3">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0547"/>
+        <box size="0.5 0.5 0.0346"/>
       </geometry>
       <material name="color_6_3">
         <color rgba="1 1 1 1"/>
@@ -1776,26 +1776,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0547"/>
+        <box size="0.5 0.5 0.0346"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000775" ixy="0" ixz="0" iyy="0.000775" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002093" ixy="0" ixz="0" iyy="0.002093" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_6_3" type="fixed">
     <parent link="base_link"/>
     <child link="tile_6_3"/>
-    <origin xyz="-0.450 0.450 0.027" rpy="0 0 0"/>
+    <origin xyz="-0.750 0.750 0.017" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_6_4">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0299"/>
+        <box size="0.5 0.5 0.0265"/>
       </geometry>
       <material name="color_6_4">
         <color rgba="0.59 0.96 1 1"/>
@@ -1804,26 +1804,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0299"/>
+        <box size="0.5 0.5 0.0265"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000757" ixy="0" ixz="0" iyy="0.000757" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002089" ixy="0" ixz="0" iyy="0.002089" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_6_4" type="fixed">
     <parent link="base_link"/>
     <child link="tile_6_4"/>
-    <origin xyz="-0.150 0.450 0.015" rpy="0 0 0"/>
+    <origin xyz="-0.250 0.750 0.013" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_6_5">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0182"/>
+        <box size="0.5 0.5 0.0304"/>
       </geometry>
       <material name="color_6_5">
         <color rgba="1 1 1 1"/>
@@ -1832,26 +1832,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0182"/>
+        <box size="0.5 0.5 0.0304"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000753" ixy="0" ixz="0" iyy="0.000753" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002091" ixy="0" ixz="0" iyy="0.002091" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_6_5" type="fixed">
     <parent link="base_link"/>
     <child link="tile_6_5"/>
-    <origin xyz="0.150 0.450 0.009" rpy="0 0 0"/>
+    <origin xyz="0.250 0.750 0.015" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_6_6">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0368"/>
+        <box size="0.5 0.5 0.0144"/>
       </geometry>
       <material name="color_6_6">
         <color rgba="0.59 0.96 1 1"/>
@@ -1860,26 +1860,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0368"/>
+        <box size="0.5 0.5 0.0144"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000761" ixy="0" ixz="0" iyy="0.000761" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_6_6" type="fixed">
     <parent link="base_link"/>
     <child link="tile_6_6"/>
-    <origin xyz="0.450 0.450 0.018" rpy="0 0 0"/>
+    <origin xyz="0.750 0.750 0.007" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_6_7">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0604"/>
+        <box size="0.5 0.5 0.0289"/>
       </geometry>
       <material name="color_6_7">
         <color rgba="1 1 1 1"/>
@@ -1888,26 +1888,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0604"/>
+        <box size="0.5 0.5 0.0289"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000780" ixy="0" ixz="0" iyy="0.000780" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002090" ixy="0" ixz="0" iyy="0.002090" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_6_7" type="fixed">
     <parent link="base_link"/>
     <child link="tile_6_7"/>
-    <origin xyz="0.750 0.450 0.030" rpy="0 0 0"/>
+    <origin xyz="1.250 0.750 0.014" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_6_8">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0342"/>
+        <box size="0.5 0.5 0.0196"/>
       </geometry>
       <material name="color_6_8">
         <color rgba="0.59 0.96 1 1"/>
@@ -1916,26 +1916,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0342"/>
+        <box size="0.5 0.5 0.0196"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000760" ixy="0" ixz="0" iyy="0.000760" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002087" ixy="0" ixz="0" iyy="0.002087" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_6_8" type="fixed">
     <parent link="base_link"/>
     <child link="tile_6_8"/>
-    <origin xyz="1.050 0.450 0.017" rpy="0 0 0"/>
+    <origin xyz="1.750 0.750 0.010" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_6_9">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0517"/>
+        <box size="0.5 0.5 0.0112"/>
       </geometry>
       <material name="color_6_9">
         <color rgba="1 1 1 1"/>
@@ -1944,26 +1944,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0517"/>
+        <box size="0.5 0.5 0.0112"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000772" ixy="0" ixz="0" iyy="0.000772" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002084" ixy="0" ixz="0" iyy="0.002084" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_6_9" type="fixed">
     <parent link="base_link"/>
     <child link="tile_6_9"/>
-    <origin xyz="1.350 0.450 0.026" rpy="0 0 0"/>
+    <origin xyz="2.250 0.750 0.006" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_7_0">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0540"/>
+        <box size="0.5 0.5 0.0115"/>
       </geometry>
       <material name="color_7_0">
         <color rgba="1 1 1 1"/>
@@ -1972,26 +1972,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0540"/>
+        <box size="0.5 0.5 0.0115"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000774" ixy="0" ixz="0" iyy="0.000774" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002084" ixy="0" ixz="0" iyy="0.002084" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_7_0" type="fixed">
     <parent link="base_link"/>
     <child link="tile_7_0"/>
-    <origin xyz="-1.350 0.750 0.027" rpy="0 0 0"/>
+    <origin xyz="-2.250 1.250 0.006" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_7_1">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0551"/>
+        <box size="0.5 0.5 0.0315"/>
       </geometry>
       <material name="color_7_1">
         <color rgba="0.59 0.96 1 1"/>
@@ -2000,26 +2000,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0551"/>
+        <box size="0.5 0.5 0.0315"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000775" ixy="0" ixz="0" iyy="0.000775" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002092" ixy="0" ixz="0" iyy="0.002092" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_7_1" type="fixed">
     <parent link="base_link"/>
     <child link="tile_7_1"/>
-    <origin xyz="-1.050 0.750 0.028" rpy="0 0 0"/>
+    <origin xyz="-1.750 1.250 0.016" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_7_2">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0250"/>
+        <box size="0.5 0.5 0.0348"/>
       </geometry>
       <material name="color_7_2">
         <color rgba="1 1 1 1"/>
@@ -2028,26 +2028,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0250"/>
+        <box size="0.5 0.5 0.0348"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000755" ixy="0" ixz="0" iyy="0.000755" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002093" ixy="0" ixz="0" iyy="0.002093" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_7_2" type="fixed">
     <parent link="base_link"/>
     <child link="tile_7_2"/>
-    <origin xyz="-0.750 0.750 0.013" rpy="0 0 0"/>
+    <origin xyz="-1.250 1.250 0.017" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_7_3">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0580"/>
+        <box size="0.5 0.5 0.0204"/>
       </geometry>
       <material name="color_7_3">
         <color rgba="0.59 0.96 1 1"/>
@@ -2056,26 +2056,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0580"/>
+        <box size="0.5 0.5 0.0204"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000778" ixy="0" ixz="0" iyy="0.000778" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002087" ixy="0" ixz="0" iyy="0.002087" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_7_3" type="fixed">
     <parent link="base_link"/>
     <child link="tile_7_3"/>
-    <origin xyz="-0.450 0.750 0.029" rpy="0 0 0"/>
+    <origin xyz="-0.750 1.250 0.010" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_7_4">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0691"/>
+        <box size="0.5 0.5 0.0337"/>
       </geometry>
       <material name="color_7_4">
         <color rgba="1 1 1 1"/>
@@ -2084,26 +2084,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0691"/>
+        <box size="0.5 0.5 0.0337"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000790" ixy="0" ixz="0" iyy="0.000790" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002093" ixy="0" ixz="0" iyy="0.002093" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_7_4" type="fixed">
     <parent link="base_link"/>
     <child link="tile_7_4"/>
-    <origin xyz="-0.150 0.750 0.035" rpy="0 0 0"/>
+    <origin xyz="-0.250 1.250 0.017" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_7_5">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0219"/>
+        <box size="0.5 0.5 0.0157"/>
       </geometry>
       <material name="color_7_5">
         <color rgba="0.59 0.96 1 1"/>
@@ -2112,26 +2112,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0219"/>
+        <box size="0.5 0.5 0.0157"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000754" ixy="0" ixz="0" iyy="0.000754" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_7_5" type="fixed">
     <parent link="base_link"/>
     <child link="tile_7_5"/>
-    <origin xyz="0.150 0.750 0.011" rpy="0 0 0"/>
+    <origin xyz="0.250 1.250 0.008" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_7_6">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0426"/>
+        <box size="0.5 0.5 0.0194"/>
       </geometry>
       <material name="color_7_6">
         <color rgba="1 1 1 1"/>
@@ -2140,26 +2140,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0426"/>
+        <box size="0.5 0.5 0.0194"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000765" ixy="0" ixz="0" iyy="0.000765" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002086" ixy="0" ixz="0" iyy="0.002086" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_7_6" type="fixed">
     <parent link="base_link"/>
     <child link="tile_7_6"/>
-    <origin xyz="0.450 0.750 0.021" rpy="0 0 0"/>
+    <origin xyz="0.750 1.250 0.010" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_7_7">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0365"/>
+        <box size="0.5 0.5 0.0126"/>
       </geometry>
       <material name="color_7_7">
         <color rgba="0.59 0.96 1 1"/>
@@ -2168,26 +2168,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0365"/>
+        <box size="0.5 0.5 0.0126"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000761" ixy="0" ixz="0" iyy="0.000761" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_7_7" type="fixed">
     <parent link="base_link"/>
     <child link="tile_7_7"/>
-    <origin xyz="0.750 0.750 0.018" rpy="0 0 0"/>
+    <origin xyz="1.250 1.250 0.006" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_7_8">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0171"/>
+        <box size="0.5 0.5 0.0355"/>
       </geometry>
       <material name="color_7_8">
         <color rgba="1 1 1 1"/>
@@ -2196,26 +2196,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0171"/>
+        <box size="0.5 0.5 0.0355"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000752" ixy="0" ixz="0" iyy="0.000752" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002094" ixy="0" ixz="0" iyy="0.002094" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_7_8" type="fixed">
     <parent link="base_link"/>
     <child link="tile_7_8"/>
-    <origin xyz="1.050 0.750 0.009" rpy="0 0 0"/>
+    <origin xyz="1.750 1.250 0.018" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_7_9">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0549"/>
+        <box size="0.5 0.5 0.0340"/>
       </geometry>
       <material name="color_7_9">
         <color rgba="0.59 0.96 1 1"/>
@@ -2224,26 +2224,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0549"/>
+        <box size="0.5 0.5 0.0340"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000775" ixy="0" ixz="0" iyy="0.000775" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002093" ixy="0" ixz="0" iyy="0.002093" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_7_9" type="fixed">
     <parent link="base_link"/>
     <child link="tile_7_9"/>
-    <origin xyz="1.350 0.750 0.027" rpy="0 0 0"/>
+    <origin xyz="2.250 1.250 0.017" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_8_0">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0515"/>
+        <box size="0.5 0.5 0.0391"/>
       </geometry>
       <material name="color_8_0">
         <color rgba="0.59 0.96 1 1"/>
@@ -2252,26 +2252,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0515"/>
+        <box size="0.5 0.5 0.0391"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000772" ixy="0" ixz="0" iyy="0.000772" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002096" ixy="0" ixz="0" iyy="0.002096" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_8_0" type="fixed">
     <parent link="base_link"/>
     <child link="tile_8_0"/>
-    <origin xyz="-1.350 1.050 0.026" rpy="0 0 0"/>
+    <origin xyz="-2.250 1.750 0.020" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_8_1">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0157"/>
+        <box size="0.5 0.5 0.0154"/>
       </geometry>
       <material name="color_8_1">
         <color rgba="1 1 1 1"/>
@@ -2280,26 +2280,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0157"/>
+        <box size="0.5 0.5 0.0154"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000752" ixy="0" ixz="0" iyy="0.000752" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_8_1" type="fixed">
     <parent link="base_link"/>
     <child link="tile_8_1"/>
-    <origin xyz="-1.050 1.050 0.008" rpy="0 0 0"/>
+    <origin xyz="-1.750 1.750 0.008" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_8_2">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0355"/>
+        <box size="0.5 0.5 0.0267"/>
       </geometry>
       <material name="color_8_2">
         <color rgba="0.59 0.96 1 1"/>
@@ -2308,26 +2308,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0355"/>
+        <box size="0.5 0.5 0.0267"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000760" ixy="0" ixz="0" iyy="0.000760" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002089" ixy="0" ixz="0" iyy="0.002089" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_8_2" type="fixed">
     <parent link="base_link"/>
     <child link="tile_8_2"/>
-    <origin xyz="-0.750 1.050 0.018" rpy="0 0 0"/>
+    <origin xyz="-1.250 1.750 0.013" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_8_3">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0670"/>
+        <box size="0.5 0.5 0.0291"/>
       </geometry>
       <material name="color_8_3">
         <color rgba="1 1 1 1"/>
@@ -2336,26 +2336,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0670"/>
+        <box size="0.5 0.5 0.0291"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000787" ixy="0" ixz="0" iyy="0.000787" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002090" ixy="0" ixz="0" iyy="0.002090" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_8_3" type="fixed">
     <parent link="base_link"/>
     <child link="tile_8_3"/>
-    <origin xyz="-0.450 1.050 0.034" rpy="0 0 0"/>
+    <origin xyz="-0.750 1.750 0.015" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_8_4">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0677"/>
+        <box size="0.5 0.5 0.0321"/>
       </geometry>
       <material name="color_8_4">
         <color rgba="0.59 0.96 1 1"/>
@@ -2364,26 +2364,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0677"/>
+        <box size="0.5 0.5 0.0321"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000788" ixy="0" ixz="0" iyy="0.000788" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002092" ixy="0" ixz="0" iyy="0.002092" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_8_4" type="fixed">
     <parent link="base_link"/>
     <child link="tile_8_4"/>
-    <origin xyz="-0.150 1.050 0.034" rpy="0 0 0"/>
+    <origin xyz="-0.250 1.750 0.016" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_8_5">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0107"/>
+        <box size="0.5 0.5 0.0157"/>
       </geometry>
       <material name="color_8_5">
         <color rgba="1 1 1 1"/>
@@ -2392,26 +2392,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0107"/>
+        <box size="0.5 0.5 0.0157"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000751" ixy="0" ixz="0" iyy="0.000751" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_8_5" type="fixed">
     <parent link="base_link"/>
     <child link="tile_8_5"/>
-    <origin xyz="0.150 1.050 0.005" rpy="0 0 0"/>
+    <origin xyz="0.250 1.750 0.008" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_8_6">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0503"/>
+        <box size="0.5 0.5 0.0224"/>
       </geometry>
       <material name="color_8_6">
         <color rgba="0.59 0.96 1 1"/>
@@ -2420,26 +2420,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0503"/>
+        <box size="0.5 0.5 0.0224"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000771" ixy="0" ixz="0" iyy="0.000771" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002088" ixy="0" ixz="0" iyy="0.002088" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_8_6" type="fixed">
     <parent link="base_link"/>
     <child link="tile_8_6"/>
-    <origin xyz="0.450 1.050 0.025" rpy="0 0 0"/>
+    <origin xyz="0.750 1.750 0.011" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_8_7">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0384"/>
+        <box size="0.5 0.5 0.0193"/>
       </geometry>
       <material name="color_8_7">
         <color rgba="1 1 1 1"/>
@@ -2448,26 +2448,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0384"/>
+        <box size="0.5 0.5 0.0193"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000762" ixy="0" ixz="0" iyy="0.000762" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002086" ixy="0" ixz="0" iyy="0.002086" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_8_7" type="fixed">
     <parent link="base_link"/>
     <child link="tile_8_7"/>
-    <origin xyz="0.750 1.050 0.019" rpy="0 0 0"/>
+    <origin xyz="1.250 1.750 0.010" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_8_8">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0124"/>
+        <box size="0.5 0.5 0.0163"/>
       </geometry>
       <material name="color_8_8">
         <color rgba="0.59 0.96 1 1"/>
@@ -2476,26 +2476,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0124"/>
+        <box size="0.5 0.5 0.0163"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000751" ixy="0" ixz="0" iyy="0.000751" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002086" ixy="0" ixz="0" iyy="0.002086" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_8_8" type="fixed">
     <parent link="base_link"/>
     <child link="tile_8_8"/>
-    <origin xyz="1.050 1.050 0.006" rpy="0 0 0"/>
+    <origin xyz="1.750 1.750 0.008" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_8_9">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0576"/>
+        <box size="0.5 0.5 0.0230"/>
       </geometry>
       <material name="color_8_9">
         <color rgba="1 1 1 1"/>
@@ -2504,26 +2504,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0576"/>
+        <box size="0.5 0.5 0.0230"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000778" ixy="0" ixz="0" iyy="0.000778" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002088" ixy="0" ixz="0" iyy="0.002088" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_8_9" type="fixed">
     <parent link="base_link"/>
     <child link="tile_8_9"/>
-    <origin xyz="1.350 1.050 0.029" rpy="0 0 0"/>
+    <origin xyz="2.250 1.750 0.011" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_9_0">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0181"/>
+        <box size="0.5 0.5 0.0113"/>
       </geometry>
       <material name="color_9_0">
         <color rgba="1 1 1 1"/>
@@ -2532,26 +2532,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0181"/>
+        <box size="0.5 0.5 0.0113"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000753" ixy="0" ixz="0" iyy="0.000753" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002084" ixy="0" ixz="0" iyy="0.002084" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_9_0" type="fixed">
     <parent link="base_link"/>
     <child link="tile_9_0"/>
-    <origin xyz="-1.350 1.350 0.009" rpy="0 0 0"/>
+    <origin xyz="-2.250 2.250 0.006" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_9_1">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0304"/>
+        <box size="0.5 0.5 0.0130"/>
       </geometry>
       <material name="color_9_1">
         <color rgba="0.59 0.96 1 1"/>
@@ -2560,26 +2560,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0304"/>
+        <box size="0.5 0.5 0.0130"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000758" ixy="0" ixz="0" iyy="0.000758" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_9_1" type="fixed">
     <parent link="base_link"/>
     <child link="tile_9_1"/>
-    <origin xyz="-1.050 1.350 0.015" rpy="0 0 0"/>
+    <origin xyz="-1.750 2.250 0.007" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_9_2">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0670"/>
+        <box size="0.5 0.5 0.0155"/>
       </geometry>
       <material name="color_9_2">
         <color rgba="1 1 1 1"/>
@@ -2588,26 +2588,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0670"/>
+        <box size="0.5 0.5 0.0155"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000787" ixy="0" ixz="0" iyy="0.000787" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_9_2" type="fixed">
     <parent link="base_link"/>
     <child link="tile_9_2"/>
-    <origin xyz="-0.750 1.350 0.033" rpy="0 0 0"/>
+    <origin xyz="-1.250 2.250 0.008" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_9_3">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0406"/>
+        <box size="0.5 0.5 0.0224"/>
       </geometry>
       <material name="color_9_3">
         <color rgba="0.59 0.96 1 1"/>
@@ -2616,26 +2616,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0406"/>
+        <box size="0.5 0.5 0.0224"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000764" ixy="0" ixz="0" iyy="0.000764" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002088" ixy="0" ixz="0" iyy="0.002088" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_9_3" type="fixed">
     <parent link="base_link"/>
     <child link="tile_9_3"/>
-    <origin xyz="-0.450 1.350 0.020" rpy="0 0 0"/>
+    <origin xyz="-0.750 2.250 0.011" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_9_4">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0351"/>
+        <box size="0.5 0.5 0.0121"/>
       </geometry>
       <material name="color_9_4">
         <color rgba="1 1 1 1"/>
@@ -2644,26 +2644,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0351"/>
+        <box size="0.5 0.5 0.0121"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000760" ixy="0" ixz="0" iyy="0.000760" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002085" ixy="0" ixz="0" iyy="0.002085" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_9_4" type="fixed">
     <parent link="base_link"/>
     <child link="tile_9_4"/>
-    <origin xyz="-0.150 1.350 0.018" rpy="0 0 0"/>
+    <origin xyz="-0.250 2.250 0.006" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_9_5">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0191"/>
+        <box size="0.5 0.5 0.0382"/>
       </geometry>
       <material name="color_9_5">
         <color rgba="0.59 0.96 1 1"/>
@@ -2672,26 +2672,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0191"/>
+        <box size="0.5 0.5 0.0382"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000753" ixy="0" ixz="0" iyy="0.000753" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002096" ixy="0" ixz="0" iyy="0.002096" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_9_5" type="fixed">
     <parent link="base_link"/>
     <child link="tile_9_5"/>
-    <origin xyz="0.150 1.350 0.010" rpy="0 0 0"/>
+    <origin xyz="0.250 2.250 0.019" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_9_6">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0533"/>
+        <box size="0.5 0.5 0.0187"/>
       </geometry>
       <material name="color_9_6">
         <color rgba="1 1 1 1"/>
@@ -2700,26 +2700,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0533"/>
+        <box size="0.5 0.5 0.0187"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000774" ixy="0" ixz="0" iyy="0.000774" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002086" ixy="0" ixz="0" iyy="0.002086" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_9_6" type="fixed">
     <parent link="base_link"/>
     <child link="tile_9_6"/>
-    <origin xyz="0.450 1.350 0.027" rpy="0 0 0"/>
+    <origin xyz="0.750 2.250 0.009" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_9_7">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0471"/>
+        <box size="0.5 0.5 0.0347"/>
       </geometry>
       <material name="color_9_7">
         <color rgba="0.59 0.96 1 1"/>
@@ -2728,26 +2728,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0471"/>
+        <box size="0.5 0.5 0.0347"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000768" ixy="0" ixz="0" iyy="0.000768" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002093" ixy="0" ixz="0" iyy="0.002093" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_9_7" type="fixed">
     <parent link="base_link"/>
     <child link="tile_9_7"/>
-    <origin xyz="0.750 1.350 0.024" rpy="0 0 0"/>
+    <origin xyz="1.250 2.250 0.017" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_9_8">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0395"/>
+        <box size="0.5 0.5 0.0217"/>
       </geometry>
       <material name="color_9_8">
         <color rgba="1 1 1 1"/>
@@ -2756,26 +2756,26 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0395"/>
+        <box size="0.5 0.5 0.0217"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000763" ixy="0" ixz="0" iyy="0.000763" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002087" ixy="0" ixz="0" iyy="0.002087" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_9_8" type="fixed">
     <parent link="base_link"/>
     <child link="tile_9_8"/>
-    <origin xyz="1.050 1.350 0.020" rpy="0 0 0"/>
+    <origin xyz="1.750 2.250 0.011" rpy="0 0 0"/>
   </joint>
         
   <link name="tile_9_9">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0476"/>
+        <box size="0.5 0.5 0.0232"/>
       </geometry>
       <material name="color_9_9">
         <color rgba="0.59 0.96 1 1"/>
@@ -2784,18 +2784,18 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.3 0.3 0.0476"/>
+        <box size="0.5 0.5 0.0232"/>
       </geometry>
     </collision>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.1"/>
-      <inertia ixx="0.000769" ixy="0" ixz="0" iyy="0.000769" iyz="0" izz="0.001500"/>
+      <inertia ixx="0.002088" ixy="0" ixz="0" iyy="0.002088" iyz="0" izz="0.004167"/>
     </inertial>
   </link>
   <joint name="joint_tile_9_9" type="fixed">
     <parent link="base_link"/>
     <child link="tile_9_9"/>
-    <origin xyz="1.350 1.350 0.024" rpy="0 0 0"/>
+    <origin xyz="2.250 2.250 0.012" rpy="0 0 0"/>
   </joint>
         </robot>
