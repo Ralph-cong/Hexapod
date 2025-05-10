@@ -194,12 +194,15 @@ class HexapodCPGEnv(gym.Env):
         position, orientation = p.getBasePositionAndOrientation(self.robot_id)
         orientation = np.array(p.getEulerFromQuaternion(orientation))  # roll, pitch, yaw
 
-        # # 新增：保存 RPY 到文件
-        # log_dir = "./assets"
-        # os.makedirs(log_dir, exist_ok=True)
-        # log_path = os.path.join(log_dir, "rpy_log.txt")
+        # 新增：保存 RPY 到文件
+        log_dir = "./assets"
+        os.makedirs(log_dir, exist_ok=True)
+        log_path = os.path.join(log_dir, "xyz2_PPO.txt")
         # with open(log_path, "a") as f:
         #     f.write(f"{orientation[0]},{orientation[1]},{orientation[2]}\n")
+
+        with open(log_path, "a") as f:
+            f.write(f"{position[0]},{position[1]},{position[2]}\n")
 
         observation = np.concatenate(
             [joint_pos, joint_vel, self.goal, position, orientation, self.A, np.array([self.max_h])])

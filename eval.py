@@ -10,7 +10,7 @@ def main():
     # 加载模型进行测试
     env = make_vec_env(lambda: HexapodCPGEnv(render_mode='human'), n_envs=1)
 
-    save_path = os.path.join("checkpoints", "hexapod_cpg_ppo")
+    save_path = os.path.join("checkpoints", "ppo_checkpoint_300909_steps")
     model = PPO.load(save_path, env=env)
 
     # 评估模型
