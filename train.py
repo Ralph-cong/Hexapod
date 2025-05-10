@@ -34,7 +34,7 @@ class TimeBasedCheckpointCallback(BaseCallback):
 def main(from_scratch: bool = True, steps: int = 500_000, model_path: str = "checkpoints"):
 
     n_envs = 1
-    env = make_vec_env(lambda: HexapodCPGEnv(render_mode='none'), n_envs=n_envs)
+    env = make_vec_env(lambda: HexapodCPGEnv(render_mode='human'), n_envs=n_envs)
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     os.makedirs(model_path, exist_ok=True)

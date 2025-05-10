@@ -85,10 +85,10 @@ class HexapodCPGEnv(gym.Env):
         p.setGravity(0, 0, -9.8)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
-        p.loadURDF("./assets/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
+        # p.loadURDF("./assets/custom_ground.urdf", basePosition=[0, 0, 0],useFixedBase=True)
         p.loadURDF("plane.urdf", useMaximalCoordinates=True)
         # p.loadURDF("./assets/stair_obstacle.urdf", basePosition=[-3.3, 0, 0])
-        # p.loadURDF("./assets/obstacle.urdf", basePosition=[0, 0, 0],useFixedBase=True)
+        p.loadURDF("./assets/obstacle.urdf", basePosition=[0, 0, 0],useFixedBase=True)
         # p.loadURDF("./assets/obstacle_mul.urdf", basePosition=[0.3, 0, 0],useFixedBase=True)
 
         self.mid_joint_value = [0, 0, 0]
