@@ -1,7 +1,11 @@
 <?xml version="1.0" ?>
 <robot name="obstacle_regions">
-    <link name="base_link"/>
-    
+    <link name="base_link">
+        <inertial>
+            <mass value="0.1"/>
+            <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+        </inertial>
+    </link> 
     <link name="region_0">
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
